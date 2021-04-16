@@ -6,6 +6,13 @@
           "wordriver-57fe8"
         ]
       }
+    },
+    "word-river-76c1a": {
+      "hosting": {
+        "client": [
+          "word-river-76c1a"
+        ]
+      }
     }
   }
 }
