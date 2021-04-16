@@ -1,5 +1,5 @@
 
-# Iteration 2 Team Chicken <!-- omit in toc -->
+# Iteration 3 Team Geduk <!-- omit in toc -->
 
 [![Server Build Status](../../actions/workflows/server.yml/badge.svg)](../../actions/workflows/server.yml)
 [![Client Build Status](../../actions/workflows/client.yaml/badge.svg)](../../actions/workflows/client.yaml)
