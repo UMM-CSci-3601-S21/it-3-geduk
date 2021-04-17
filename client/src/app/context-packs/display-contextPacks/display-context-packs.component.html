@@ -5,6 +5,11 @@
       <mat-icon>add</mat-icon>
       <span>Add</span>
     </a>
+
+    <a class="import-cp-button" data-test="importCpButton" routerLink="">
+      <mat-icon>import_export</mat-icon>
+      <span>Import</span>
+    </a>
   </div>
   <div class="context-pack-display">
     <app-cp-card simple="true" (delete)="removeCP(pack._id)" *ngFor="let pack of contextPacks" class="cp-card"
