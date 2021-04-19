@@ -174,4 +174,13 @@ public class WordRiverController {
       ctx.json(wordlists);
     }
   }
+  public void updateContextPack(Context ctx){
+    ContextPack contextPack = ctx.bodyValidator(ContextPack.class)
+      .get();
+      ctxCollection.replaceOne(eq("name", contextPack.name), contextPack);
+      ctx.status(201);
+      ctx.json(ImmutableMap.of("name", contextPack.name));
+  }
+
+
 }
