@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { WordList } from 'src/app/datatypes/wordlist';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContextPack } from 'src/app/datatypes/contextPacks';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-display-wordlist',
@@ -22,7 +23,9 @@ export class DisplayWordlistComponent implements OnInit {
     private route: ActivatedRoute,
     private service: WordListService,
     private cpservice: ContextPackService,
-    private router: Router
+    private router: Router,
+    private contextPackService: ContextPackService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,7 @@ export class DisplayWordlistComponent implements OnInit {
     });
     this.cpservice.getPack(this.id).subscribe(cp=>{
       this.pack = cp;
+      console.log(this.pack);
       this.list = cp.wordlists;
       this.countWords();
     });
@@ -52,5 +56,30 @@ export class DisplayWordlistComponent implements OnInit {
     });
   }
 
+  setEnableOrDisable(element,contextPack: ContextPack){
+    if(contextPack !== null){
+      if(element.target.textContent === 'disable'){
+        element.target.textContent = 'enable';
+        contextPack.enabled = false;
+        console.log(contextPack.enabled);
+      }
+      else{
+        element.target.textContent = 'disable';
+        contextPack.enabled = true;
+        console.log(contextPack.enabled);
+      }
+      this.submit(contextPack);
+      return(contextPack.enabled.toString());}}
 
+      submit(cp: ContextPack) {
+        this.contextPackService.updateContextPack(cp).subscribe(contextpack => {
+
+          this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated ' , null, {
+            duration: 2000,
+          });
+        }, err => {
+          this.snackBar.open('Failed to update the pack', 'OK', {
+            duration: 5000,
+          });
+        });}
 }

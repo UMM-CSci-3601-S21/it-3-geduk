@@ -14,7 +14,13 @@
             />
             <div class="cp-profile">
               <h2>{{ pack ? pack.name : "" }}</h2>
-              <h5>{{ pack ? (pack.enabled ? "Enabled" : "Disabled") : "" }}</h5>
+              <div *ngIf='pack.enabled === true'>
+                <button mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event,pack);$event.stopPropagation()" >disable</button>
+              </div>
+
+              <div *ngIf='pack.enabled === false'>
+                <button  mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event,pack);$event.stopPropagation()" >enable</button>
+              </div>
             </div>
             <button
               *ngIf="!deleteClicked"
