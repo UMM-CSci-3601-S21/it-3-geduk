@@ -4,6 +4,7 @@ import static com.mongodb.client.model.Filters.eq;
 import java.util.ArrayList;
 import com.google.common.collect.ImmutableMap;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -54,7 +55,7 @@ public class WordRiverController {
     ContextPack contextPack;
 
 
-    System.out.println(id);
+    // System.out.println(id);
 
     try {
       contextPack = ctxCollection.find(eq("_id", new ObjectId(id))).first();
@@ -174,10 +175,12 @@ public class WordRiverController {
       ctx.json(wordlists);
     }
   }
+
   public void updateContextPack(Context ctx){
+    String cpId = ctx.pathParam("id");
     ContextPack contextPack = ctx.bodyValidator(ContextPack.class)
       .get();
-      ctxCollection.replaceOne(eq("name", contextPack.name), contextPack);
+      ctxCollection.findOneAndReplace(Filters.eq(cpId), contextPack);
       ctx.status(201);
       ctx.json(ImmutableMap.of("name", contextPack.name));
   }

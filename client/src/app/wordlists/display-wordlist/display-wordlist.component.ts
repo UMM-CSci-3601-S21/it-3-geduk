@@ -13,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class DisplayWordlistComponent implements OnInit {
   title = 'Word Lists';
+  name = '';
   list: WordList[] = [];
   pack: ContextPack;
   wordcount = 0;
@@ -34,8 +35,9 @@ export class DisplayWordlistComponent implements OnInit {
     });
     this.cpservice.getPack(this.id).subscribe(cp=>{
       this.pack = cp;
-      console.log(this.pack);
+      // console.log(this.pack);
       this.list = cp.wordlists;
+      this.name = cp.name;
       this.countWords();
     });
   }
@@ -69,17 +71,25 @@ export class DisplayWordlistComponent implements OnInit {
         console.log(contextPack.enabled);
       }
       this.submit(contextPack);
-      return(contextPack.enabled.toString());}}
+      return(contextPack.enabled.toString());
+    }
+  }
 
-      submit(cp: ContextPack) {
-        this.contextPackService.updateContextPack(cp).subscribe(contextpack => {
+  save() {
+    this.pack.name = this.name.replace(/([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g, '').trim();
+    this.submit(this.pack);
+  }
 
-          this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated ' , null, {
-            duration: 2000,
-          });
-        }, err => {
-          this.snackBar.open('Failed to update the pack', 'OK', {
-            duration: 5000,
-          });
-        });}
+  submit(cp: ContextPack) {
+    this.contextPackService.updateContextPack(cp, cp._id).subscribe(contextpack => {
+
+      this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated ' , null, {
+        duration: 2000,
+      });
+    }, err => {
+      this.snackBar.open('Failed to update the pack', 'OK', {
+        duration: 5000,
+      });
+    });
+  }
 }

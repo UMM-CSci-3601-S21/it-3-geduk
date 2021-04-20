@@ -34,9 +34,7 @@ export class ContextPackService {
     return this.httpClient.delete<{ id: string }>(this.contextPackUrl + '/' + id).pipe(map(res => res.id));
   }
 
-  updateContextPack(updatePack: ContextPack): Observable<ContextPack> {
-    console.log(this.contextPackUrl);
-    console.log(updatePack);
-    return this.httpClient.put<ContextPack>(this.contextPackUrl, updatePack).pipe(map(res => res));
+  updateContextPack(updatePack: ContextPack, id: string): Observable<ContextPack> {
+    return this.httpClient.put<ContextPack>(this.contextPackUrl + '/' + id , updatePack).pipe(map(res => res));
   }
 }

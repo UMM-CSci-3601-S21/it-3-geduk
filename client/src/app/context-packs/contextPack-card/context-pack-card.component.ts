@@ -60,7 +60,7 @@ export class ContextPackCardComponent implements OnInit {
       return(contextPack.enabled.toString());}}
 
       submit(cp: ContextPack) {
-        this.contextPackService.updateContextPack(cp).subscribe(contextpack => {
+        this.contextPackService.updateContextPack(cp, cp._id).subscribe(contextpack => {
 
           this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated ' , null, {
             duration: 2000,
