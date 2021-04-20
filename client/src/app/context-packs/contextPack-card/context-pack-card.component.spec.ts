@@ -8,6 +8,8 @@ import { MockCPService } from 'src/testing/context-pack.service.mock';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DisplayContextPacksComponent } from '../display-contextPacks/display-context-packs.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 describe('CpCardComponent', () => {
@@ -23,8 +25,12 @@ describe('CpCardComponent', () => {
           { path: '', component: DisplayContextPacksComponent }
             ])],
       declarations: [ ContextPackCardComponent ],
-      providers: [{ provide: ContextPackService, useValue: new MockCPService() }]
-      })
+      providers: [
+        { provide: ContextPackService, useValue: new MockCPService() },
+        { provide: MatSnackBar },
+        { provide: OverlayModule }
+      ]
+    })
     .compileComponents();
   });
 

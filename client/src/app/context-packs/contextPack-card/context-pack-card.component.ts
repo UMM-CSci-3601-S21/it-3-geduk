@@ -18,7 +18,7 @@ export class ContextPackCardComponent implements OnInit {
 
   count: number;
   deleteClicked = false;
-  constructor(private contextPackService: ContextPackService, private snackBar: MatSnackBar,private router: Router) { }
+  constructor(private contextPackService: ContextPackService, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.countWords();
@@ -49,25 +49,25 @@ export class ContextPackCardComponent implements OnInit {
       if(element.target.textContent === 'disable'){
         element.target.textContent = 'enable';
         contextPack.enabled = false;
-        console.log(contextPack.enabled);
       }
       else{
         element.target.textContent = 'disable';
         contextPack.enabled = true;
-        console.log(contextPack.enabled);
       }
       this.submit(contextPack);
-      return(contextPack.enabled.toString());}}
+      return(contextPack.enabled.toString());
+    }
+  }
 
-      submit(cp: ContextPack) {
-        this.contextPackService.updateContextPack(cp, cp._id).subscribe(contextpack => {
-
-          this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated ' , null, {
-            duration: 2000,
-          });
-        }, err => {
-          this.snackBar.open('Failed to update the pack', 'OK', {
-            duration: 5000,
-          });
-        });}
+  submit(cp: ContextPack) {
+    this.contextPackService.updateContextPack(cp, cp._id).subscribe(contextpack => {
+      this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated ' , null, {
+        duration: 2000,
+      });
+    }, err => {
+      this.snackBar.open('Failed to update the pack', 'OK', {
+        duration: 5000,
+      });
+    });
+  }
 }

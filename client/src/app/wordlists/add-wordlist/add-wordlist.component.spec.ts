@@ -9,6 +9,8 @@ import { MockWordListService } from 'src/testing/wordlist.service.mock';
 
 import { AddWordListComponent } from './add-wordlist.component';
 import { of } from 'rxjs';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { Overlay } from '@angular/cdk/overlay';
 
 describe('AddWordListComponent', () => {
   let component: AddWordListComponent;
@@ -19,15 +21,13 @@ describe('AddWordListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddWordListComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([
+      imports: [Overlay, HttpClientTestingModule, RouterTestingModule.withRoutes([
         { path: 'packs/:id', component: DisplayWordlistComponent }
       ]), COMMON_IMPORTS],
-      providers: [{ provide: WordListService, useValue: new MockWordListService()}, {
-        provide: ActivatedRoute,
-        useValue: {
-          paramMap: of(paramMap)
-        }
-      }
+      providers: [
+        { provide: WordListService, useValue: new MockWordListService()},
+        { provide: ActivatedRoute, useValue: {paramMap: of(paramMap)}},
+        { provide: OverlayModule }
       ]
     })
       .compileComponents();
