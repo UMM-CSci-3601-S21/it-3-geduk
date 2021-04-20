@@ -59,9 +59,11 @@ export class AddWordComponent implements OnInit {
 
   suggest() {
     const typed = this.wordName;
+    const regEx = /^(.*?)\,/g;
+    const firstWord = this.wordName.split(regEx);
     setTimeout(() => {
       if (this.wordName && typed === this.wordName) {
-        this.dictionary.getType(this.wordName, type => {
+        this.dictionary.getType(firstWord[0], type => {
           if (type === 'adjective' || type === 'verb' || type === 'noun') {
             this.type = `${type}s`;
             this.suggested = type;
