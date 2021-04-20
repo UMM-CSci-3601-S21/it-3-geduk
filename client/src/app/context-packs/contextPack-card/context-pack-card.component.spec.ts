@@ -9,7 +9,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DisplayContextPacksComponent } from '../display-contextPacks/display-context-packs.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { OverlayModule } from '@angular/cdk/overlay';
+import { Overlay } from '@angular/cdk/overlay';
 
 
 describe('CpCardComponent', () => {
@@ -28,14 +28,14 @@ describe('CpCardComponent', () => {
       providers: [
         { provide: ContextPackService, useValue: new MockCPService() },
         { provide: MatSnackBar },
-        { provide: OverlayModule }
+        { provide: Overlay }
       ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    const testList: Array<WordList> = MockCPService.testCPs[0].wordlists;
+    const testList: Array<WordList> = MockCPService.testList;
     fixture = TestBed.createComponent(ContextPackCardComponent);
     cpCard = fixture.componentInstance;
     cpCard.contextPack = {
@@ -67,7 +67,7 @@ describe('CpCardComponent', () => {
       icon: 'image.png',
       enabled: true,
       wordlist: [],
-      wordlists: MockCPService.testCPs[0].wordlist
+      wordlists: MockCPService.testList
     };
     cpCard.countWords();
     expect(cpCard.count).toBe(10);
