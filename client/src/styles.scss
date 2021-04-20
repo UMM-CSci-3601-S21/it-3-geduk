@@ -98,6 +98,10 @@ body {
   text-transform: uppercase;
 }
 
+.mat-tooltip.context-pack-words {
+  font-size: 14px;
+}
+
 // Special styling for the E2E test highlighter
 #BP_ELEMENT_HIGHLIGHT__ {
   z-index: 100;
