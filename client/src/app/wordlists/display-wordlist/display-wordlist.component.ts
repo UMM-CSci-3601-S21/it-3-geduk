@@ -60,13 +60,14 @@ export class DisplayWordlistComponent implements OnInit {
 
   setEnableOrDisable(element,contextPack: ContextPack){
     if(contextPack !== null){
-      if(element.target.textContent === 'disable'){
-        element.target.textContent = 'enable';
+      console.log(element);
+      if(element.textContent === 'disable'){
+        element.textContent = 'enable';
         contextPack.enabled = false;
         console.log(contextPack.enabled);
       }
       else{
-        element.target.textContent = 'disable';
+        element.textContent = 'disable';
         contextPack.enabled = true;
         console.log(contextPack.enabled);
       }
