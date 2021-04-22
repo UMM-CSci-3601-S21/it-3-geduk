@@ -18,11 +18,11 @@
                 <input matInput name="name" [(ngModel)]="name">
               </mat-form-field>
               <div *ngIf='pack.enabled === true'>
-                <button mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event,pack);$event.stopPropagation()" >disable</button>
+                <button mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event.target,pack);$event.stopPropagation()" >disable</button>
               </div>
 
               <div *ngIf='pack.enabled === false'>
-                <button  mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event,pack);$event.stopPropagation()" >enable</button>
+                <button  mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event.target,pack);$event.stopPropagation()" >enable</button>
               </div>
             </div>
             <button

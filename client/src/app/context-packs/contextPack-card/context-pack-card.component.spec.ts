@@ -8,7 +8,10 @@ import { MockCPService } from 'src/testing/context-pack.service.mock';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DisplayContextPacksComponent } from '../display-contextPacks/display-context-packs.component';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ContextPack } from 'src/app/datatypes/contextPacks';
+import { of } from 'rxjs';
 import { Overlay } from '@angular/cdk/overlay';
 
 
@@ -16,12 +19,14 @@ describe('CpCardComponent', () => {
   let cpCard: ContextPackCardComponent;
   let fixture: ComponentFixture<ContextPackCardComponent>;
 
+  const matsnackbarSpy = { open: jasmine.createSpy('open') };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
         MatCardModule,
-        HttpClientTestingModule,RouterTestingModule.withRoutes([
+        HttpClientTestingModule, RouterTestingModule.withRoutes([
           { path: '', component: DisplayContextPacksComponent }
             ])],
       declarations: [ ContextPackCardComponent ],
@@ -56,7 +61,7 @@ describe('CpCardComponent', () => {
 
   it('should delete a context pack', () => {
     expect(cpCard).toBeTruthy();
-    expect(cpCard.deletePack({stopPropagation:()=>{}})).toBeUndefined();
+    expect(cpCard.deletePack({ stopPropagation: () => { } })).toBeUndefined();
   });
 
   it('count the words', () => {
@@ -71,5 +76,39 @@ describe('CpCardComponent', () => {
     };
     cpCard.countWords();
     expect(cpCard.count).toBe(10);
+  });
+
+  it('should change the value of the button and wordlist value for enable. It would then update the context pack' +
+    'with the new version', () => {
+
+      const element = {
+        textContent: 'disable'
+      };
+      console.log(element);
+      cpCard.contextPack = {
+        _id: 'computer',
+        schema: 'https://raw.githubusercontent.com/kidstech/story-builder/master/Assets/packs/schema/pack.schema.json',
+        name: 'Iron Man',
+        icon: 'image.png',
+        enabled: true,
+        wordlist: [],
+        wordlists: MockCPService.testCPs[0].wordlist
+      };
+      spyOn(cpCard, 'submit');
+      expect(cpCard.setEnableOrDisable(element, cpCard.contextPack)).toEqual('false');
+      expect(cpCard.setEnableOrDisable(element, cpCard.contextPack)).toEqual('true');
+    });
+
+
+  it('should submit the context pack', () => {
+
+    const response: ContextPack = cpCard.contextPack;
+
+
+    spyOn(ContextPackService.prototype, 'updateContextPack').and.returnValue(of(response));
+    expect(cpCard.submit(cpCard.contextPack));
+
+
+    expect(matsnackbarSpy.open).toHaveBeenCalledWith('Iron man Pack is Updated ', null, Object({ duration: 2000 }));
   });
 });

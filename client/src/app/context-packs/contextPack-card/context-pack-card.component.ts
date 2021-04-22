@@ -45,13 +45,14 @@ export class ContextPackCardComponent implements OnInit {
   }
 
   setEnableOrDisable(element,contextPack: ContextPack){
+    console.log(element);
     if(contextPack !== null){
-      if(element.target.textContent === 'disable'){
-        element.target.textContent = 'enable';
+      if(element.textContent === 'disable'){
+        element.textContent = 'enable';
         contextPack.enabled = false;
       }
       else{
-        element.target.textContent = 'disable';
+        element.textContent = 'disable';
         contextPack.enabled = true;
       }
       this.submit(contextPack);

@@ -21,6 +21,7 @@ import { ContextPackCardComponent } from '../../context-packs/contextPack-card/c
 import { MockCPService } from 'src/testing/context-pack.service.mock';
 import { ContextPackService } from '../../services/contextPack-service/contextpack.service';
 import { ContextPack } from '../../datatypes/contextPacks';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const COMMON_IMPORTS: any[] = [
   FormsModule,
