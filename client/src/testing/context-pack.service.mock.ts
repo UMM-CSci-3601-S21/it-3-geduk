@@ -88,7 +88,7 @@ export class MockCPService extends ContextPackService {
       ]
     }
     ];
-    testCPs: ContextPack[] = [
+    static testCPs: ContextPack[] = [
         {
             _id: 'meow',
             schema: 'https://raw.githubusercontent.com/kidstech/story-builder/master/Assets/packs/schema/pack.schema.json',
@@ -114,26 +114,27 @@ export class MockCPService extends ContextPackService {
             wordlist: MockCPService.testList,
         }
     ];
+
     constructor() {
       super(null);
     }
 
     getPacks(): Observable<ContextPack[]> {
-        return of(this.testCPs);
+        return of(MockCPService.testCPs);
     }
     getPack(id: string): Observable<ContextPack>{
-      return of(this.testCPs[0]);
+      return of(MockCPService.testCPs[0]);
     }
 
     deletePack(id: string): Observable<string>{
-      this.testCPs= this.testCPs.filter(cp=> cp._id!==id);
+      MockCPService.testCPs = MockCPService.testCPs.filter(cp=> cp._id!==id);
       return of(id);
     }
     addPack(newPack: { name: string; icon: string; enabled: boolean; wordlists?: any[] }): Observable<string> {
       return of('fakeid');
     }
     updateContextPack(cp: ContextPack, id: string): Observable<ContextPack>{
-      this.testCPs = this.testCPs.map(w =>{
+      MockCPService.testCPs = MockCPService.testCPs.map(w =>{
         if(w._id === id) {
           return cp;
         }
@@ -141,9 +142,9 @@ export class MockCPService extends ContextPackService {
           return w;
         }
       });
-      return of(this.testCPs.filter(e=>e._id === id)[0]);
+      return of(MockCPService.testCPs.filter(e=>e._id === id)[0]);
     }
     includes(cp: ContextPack){
-      return this.testCPs.some(e=>e._id === cp._id);
+      return MockCPService.testCPs.some(e=>e._id === cp._id);
     }
 }

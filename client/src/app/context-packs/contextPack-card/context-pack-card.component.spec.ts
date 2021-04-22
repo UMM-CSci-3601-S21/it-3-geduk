@@ -9,10 +9,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DisplayContextPacksComponent } from '../display-contextPacks/display-context-packs.component';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, matSnackBarAnimations } from '@angular/material/snack-bar';
 import { ContextPack } from 'src/app/datatypes/contextPacks';
 import { of } from 'rxjs';
 import { Overlay } from '@angular/cdk/overlay';
+import { matSelectAnimations } from '@angular/material/select';
 
 
 describe('CpCardComponent', () => {
@@ -32,7 +33,7 @@ describe('CpCardComponent', () => {
       declarations: [ ContextPackCardComponent ],
       providers: [
         { provide: ContextPackService, useValue: new MockCPService() },
-        { provide: MatSnackBar },
+        { provide: MatSnackBar, useValue: matsnackbarSpy },
         { provide: Overlay }
       ]
     })

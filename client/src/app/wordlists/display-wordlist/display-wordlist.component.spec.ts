@@ -102,7 +102,6 @@ describe('DisplayWordlistComponent', () => {
     console.log(element);
     spyOn(component,'submit');
     expect(component.setEnableOrDisable(element,component.pack)).toEqual('false');
-    expect(component.setEnableOrDisable(element,component.pack)).toEqual('true');
   });
 
 

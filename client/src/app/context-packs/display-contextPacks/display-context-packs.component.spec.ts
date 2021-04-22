@@ -21,7 +21,6 @@ import { ContextPackCardComponent } from '../../context-packs/contextPack-card/c
 import { MockCPService } from 'src/testing/context-pack.service.mock';
 import { ContextPackService } from '../../services/contextPack-service/contextpack.service';
 import { ContextPack } from '../../datatypes/contextPacks';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 const COMMON_IMPORTS: any[] = [
   FormsModule,
@@ -74,7 +73,7 @@ describe('Display Context-Packs component', () => {
       icon: 'panda.png',
       enabled: false,
       wordlist: MockCPService.testList,
-  });
+    });
     const idToDelete = 'panda';
     expect(dpContextPacks.contextPacks.length).toBe(4);
     dpContextPacks.removeCP(idToDelete);
@@ -86,6 +85,7 @@ describe('Display Context-Packs component', () => {
   });
 
   it('contains two packs that are enabled', () => {
+    console.log(dpContextPacks.contextPacks);
     expect(dpContextPacks.contextPacks.filter((pack: ContextPack) => pack.enabled === true).length).toBe(2);
   });
 
