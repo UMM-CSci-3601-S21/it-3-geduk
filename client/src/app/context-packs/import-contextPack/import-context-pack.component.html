@@ -1,0 +1,43 @@
+<div class="container-cp">
+  <mat-card class="import-context-pack-card">
+    <h1>Import a Context Pack</h1>
+    <input
+      type="file"
+      id="file"
+      (change)="onFileAdded($event)"
+      accept=".json"
+    />
+    <label for="file" class="btn-2">Upload JSON</label>
+
+    <h3 *ngIf="validFile === true" class="success">Valid JSON file!</h3>
+    <h3 *ngIf="validFile === false" class="failure">Invalid JSON file!</h3>
+
+    <div class="btn-container">
+      <button
+        mat-raised-button
+        [disabled]="!validFile"
+        data-test="confirmImportButton"
+        (click)="save()"
+        class="save-btn"
+        color="primary"
+      >
+        Import
+      </button>
+      <button
+        mat-raised-button
+        data-test="confirmCancelImportButton"
+        [routerLink]="['/packs', id]"
+        class="cancel-btn"
+        color="warn"
+      >
+        Cancel
+      </button>
+    </div>
+  </mat-card>
+  <app-cp-card
+    style="margin-top: 50px"
+    *ngIf="validFile"
+    [contextPack]="contextPack"
+  >
+  </app-cp-card>
+</div>
