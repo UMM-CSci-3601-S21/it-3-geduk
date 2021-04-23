@@ -32,6 +32,10 @@ export class WordListPage {
         return cy.get('[data-test=importWordListButton]');
       }
 
+    getEnableDisableButton() {
+      return cy.get('[data-test=setEnableButton]');
+    }
+
     clickDeleteContextPack() {
         return cy.get('[data-test=deleteContextPackButton]');
     }
@@ -47,4 +51,13 @@ export class WordListPage {
     getDeleteContextPackConfirmDeleteButton() {
         return cy.get('[data-test=deleteContextPackConfirmationButton]');
     }
+
+    getNameBox() {
+      return cy.get('.title');
+    }
+
+    getSaveButton() {
+      return cy.get('[data-test=saveWordListButton]');
+    }
+
 }
