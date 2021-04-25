@@ -23,9 +23,6 @@ export class ImportContextPackComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: ContextPackService, private router: Router) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((pmap) => {
-      this.id = pmap.get('id');
-    });
   }
 
   onFileAdded(file) {
@@ -49,7 +46,13 @@ export class ImportContextPackComponent implements OnInit {
 
   save(){
     if(this.contextPack){
-      this.service.addPack(this.contextPack).subscribe(_a => this.router.navigate([this.id]));
+      this.service.addPack(this.contextPack).subscribe(newID  =>
+
+        {
+        this.router.navigate(['/packs/',newID]);
+
+      });
+
       return true;
     }
     else {return false;}
