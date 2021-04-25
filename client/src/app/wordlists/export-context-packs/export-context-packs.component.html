@@ -1,0 +1,19 @@
+<div class="container">
+  <mat-card class="import-wordlist-card">
+    <h1>Export Pack {{pack.name}}</h1>
+
+    <button class="contextpack-download-button"
+    type="button"
+    color='primary'
+    [disabled]="checkValid(pack) === false"
+    (click)='downloadJson(pack , pack.name).click()'
+
+    >Download Json</button>
+    <br><button matTooltip="View current Json" (click)="toggleShow()" type="checkbox" data-test="showJsonButton">Preview Json File</button>
+    <div *ngIf='isShown===true'>
+
+    <pre class="form-value" style="font-size:15px">{{ pack | json }}</pre>
+  </div>
+
+</mat-card>
+</div>
