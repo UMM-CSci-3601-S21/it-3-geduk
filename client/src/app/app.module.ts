@@ -43,6 +43,7 @@ import { ContextPackService } from './services/contextPack-service/contextpack.s
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ImportContextPackComponent } from './context-packs/import-contextPack/import-context-pack.component';
+import { ExportContextPacksComponent } from './wordlists/export-context-packs/export-context-packs.component';
 
 
 const MATERIAL_MODULES: any[] = [
@@ -83,6 +84,7 @@ const MATERIAL_MODULES: any[] = [
     ContextPackCardComponent,
     AddContextPackComponent,
     ImportContextPackComponent,
+    ExportContextPacksComponent,
   ],
   imports: [
     BrowserModule,
