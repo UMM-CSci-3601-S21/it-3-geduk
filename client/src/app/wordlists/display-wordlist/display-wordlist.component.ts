@@ -17,7 +17,6 @@ export class DisplayWordlistComponent implements OnInit {
   wordcount = 0;
   id: string;
   deleteClicked = false;
-
   constructor(
     private route: ActivatedRoute,
     private service: WordListService,
@@ -51,6 +50,9 @@ export class DisplayWordlistComponent implements OnInit {
       this.router.navigate(['']);
     });
   }
+  saveAndRoute(contextPack: ContextPack){
+    this.router.navigate(['/packs/' + contextPack._id +'/export']);
+    this.cpservice.setData(contextPack);
 
-
+  }
 }
