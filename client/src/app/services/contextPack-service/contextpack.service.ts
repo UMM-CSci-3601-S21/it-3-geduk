@@ -12,6 +12,7 @@ import { ContextPack } from '../../datatypes/contextPacks';
 export class ContextPackService {
   readonly contextPackUrl: string = environment.apiUrl + 'packs';
 
+  private data: ContextPack;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -23,15 +24,22 @@ export class ContextPackService {
   }
 
   getPack(id: string): Observable<ContextPack> {
+    console.log(id);
     return this.httpClient.get<ContextPack>(this.contextPackUrl + '/' + id);
   }
 
   addPack(newPack: { name: string; icon: string; enabled: boolean; wordlists?: any[] }): Observable<string> {
+    console.log(newPack);
     return this.httpClient.post<{ id: string }>(this.contextPackUrl, newPack).pipe(map(res => res.id));
   }
 
   deletePack(id: string): Observable<string> {
     return this.httpClient.delete<{ id: string }>(this.contextPackUrl + '/' + id).pipe(map(res => res.id));
+  }
+  setData(data: ContextPack){
+    this.data = data;
+    localStorage.setItem('data',JSON.stringify(this.data));
+    return(this.data.name + ' is set in the local storage');
   }
 
 }
