@@ -1,4 +1,3 @@
-
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DictionaryService } from './../../services/dictionary-service/dictionary.service';
 
@@ -10,7 +9,9 @@ import { DictionaryService } from './../../services/dictionary-service/dictionar
 })
 export class AddWordComponent implements OnInit {
   @Output() addWord = new EventEmitter();
+  @Output() form = new EventEmitter();
   @Input() words = [];
+  @Input() wordForm = '';
 
   forms = [''];
   counter = [''];
@@ -23,6 +24,7 @@ export class AddWordComponent implements OnInit {
   added = false;
 
   valid: boolean;
+  err = false;
 
 
   constructor(private dictionary: DictionaryService) { }
@@ -79,10 +81,13 @@ export class AddWordComponent implements OnInit {
   }
 
   save() {
+    const splitInput = this.wordName.split(', ');
+
+    splitInput.forEach(val => this.forms.push(val));
+
     this.addWord.emit({
-      name: this.wordName.trim(),
-      forms: [...new Set([this.wordName.trim(),
-      ...this.forms.filter(e => e.length !== 0)])],// This line removes repetitions and inserts main word
+      name: splitInput[0],
+      forms: [...new Set([...this.forms.filter(e => e.length !== 0)])],// This line removes repetitions and inserts main word
       type: this.type
     });
     this.wordName = '';
