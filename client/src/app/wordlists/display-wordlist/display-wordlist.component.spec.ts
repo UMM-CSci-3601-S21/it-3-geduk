@@ -77,7 +77,7 @@ describe('DisplayWordlistComponent', () => {
   it('should navigate', () => {
 
     expect(component.saveAndRoute(component.pack));
-    expect (routerSpy.navigate).toHaveBeenCalledWith(['edit/wordlist']);
+    expect (routerSpy.navigate).toHaveBeenCalledWith(['']);
     });
 
 

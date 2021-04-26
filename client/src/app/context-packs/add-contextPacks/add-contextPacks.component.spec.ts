@@ -31,7 +31,7 @@ describe('AddCpComponent', () => {
         MatInputModule,
         BrowserAnimationsModule,
         RouterTestingModule.withRoutes([
-          { path: 'packs/fakeid', component: DisplayWordlistComponent }
+          { path: 'packs/**', component: DisplayWordlistComponent }
         ])
       ],
       declarations: [ AddContextPackComponent ],
