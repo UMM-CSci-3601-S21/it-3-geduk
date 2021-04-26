@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { ContextPack } from 'src/app/datatypes/contextPacks';
 
@@ -9,6 +9,7 @@ import { ContextPack } from 'src/app/datatypes/contextPacks';
   styleUrls: ['./export-context-packs.component.scss']
 })
 export class ExportContextPacksComponent implements OnInit {
+  @Input() contextpack;
   pack = JSON.parse(localStorage.getItem('data'));
   isShown = false;
   constructor() { }

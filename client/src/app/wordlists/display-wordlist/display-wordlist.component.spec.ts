@@ -2,7 +2,7 @@ import { MockWordListService } from '../../../testing/wordlist.service.mock';
 import { WordListService } from 'src/app/services/wordlist.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute, RouterModule, ParamMap } from '@angular/router';
+import { ActivatedRoute, RouterModule, ParamMap, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { COMMON_IMPORTS } from 'src/app/app-routing.module';
 import { DisplayWordlistComponent } from './display-wordlist.component';
@@ -14,7 +14,7 @@ describe('DisplayWordlistComponent', () => {
   let component: DisplayWordlistComponent;
   let fixture: ComponentFixture<DisplayWordlistComponent>;
   let service: MockCPService;
-
+  const routerSpy = {navigate: jasmine.createSpy('navigate')};
   const paramMap = new Map();
   paramMap.set('id', 'moo');
 
@@ -25,6 +25,7 @@ describe('DisplayWordlistComponent', () => {
       imports: [HttpClientTestingModule, RouterTestingModule, RouterModule.forRoot([]), COMMON_IMPORTS],
       providers: [{ provide: WordListService, useValue: new MockWordListService() },
       { provide: ContextPackService, useValue: new MockCPService() },
+      {provide: Router, useValue: routerSpy},
       {
         provide: ActivatedRoute,
         useValue: {
@@ -73,5 +74,11 @@ describe('DisplayWordlistComponent', () => {
     component.delete();
     expect(service.includes(component.pack)).toBe(false);
   });
+  it('should navigate', () => {
+
+    expect(component.saveAndRoute(component.pack));
+    expect (routerSpy.navigate).toHaveBeenCalledWith(['edit/wordlist']);
+    });
+
 
 });

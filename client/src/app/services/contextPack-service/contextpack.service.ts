@@ -41,5 +41,4 @@ export class ContextPackService {
     localStorage.setItem('data',JSON.stringify(this.data));
     return(this.data.name + ' is set in the local storage');
   }
-
 }

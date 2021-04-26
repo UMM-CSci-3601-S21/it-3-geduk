@@ -173,4 +173,15 @@ it('deletePack calls api/packs/:id', () => {
   expect(req.request.method).toEqual('DELETE');
   req.flush({id: 'moo'});
 });
+
+it('sets the data in the local storage',() => {
+  spyOn(localStorage.__proto__,'setItem');
+  const returnValue = service.setData(testCPs[1]);
+  expect(localStorage.__proto__.setItem).toHaveBeenCalled();
+  expect(returnValue).toBeTruthy();
+  expect(returnValue).toEqual( testCPs[1].name + ' is set in the local storage');
+  expect(returnValue).not.toEqual( testCPs[2].name + 'is set in the local storage');
+});
+
+
 });
