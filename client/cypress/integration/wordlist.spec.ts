@@ -45,11 +45,11 @@ describe('WordList', () => {
       page.getEnableDisableButton().contains('disable');
     });
 
-    // it('Should change the name of the context pack and back', () => {
-    //   page.getNameBox().type(' Test Pack');
-    //   page.getSaveButton().click();
-    //   page.getNameBox().contains('Birthday Pack Test Pack');
-    // });
+    it('Should change the name of the context pack and back', () => {
+      page.getNameBox().click().type(' Test Pack');
+      page.getSaveButton().click();
+      cy.get('.mat-simple-snackbar').should('contain',`Birthday pack test pack Pack is Updated`);
+    });
 
     it('Should show a confirmation message when delete context pack is clicked', () => {
         page.clickDeleteContextPack().click();

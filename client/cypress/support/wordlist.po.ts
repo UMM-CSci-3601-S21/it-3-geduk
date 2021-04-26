@@ -53,7 +53,7 @@ export class WordListPage {
     }
 
     getNameBox() {
-      return cy.get('.title');
+      return cy.get('[data-test=nameBox]');
     }
 
     getSaveButton() {

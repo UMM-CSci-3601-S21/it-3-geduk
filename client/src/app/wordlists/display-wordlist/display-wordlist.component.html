@@ -15,7 +15,7 @@
             <div class="cp-profile">
               <mat-form-field class="title">
                 <mat-label>Edit Context Pack Name</mat-label>
-                <input matInput name="name" [(ngModel)]="name">
+                <input matInput name="name" [(ngModel)]="name" data-test="nameBox">
               </mat-form-field>
               <div *ngIf='pack.enabled === true'>
                 <button mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event.target,pack);$event.stopPropagation()" >disable</button>
