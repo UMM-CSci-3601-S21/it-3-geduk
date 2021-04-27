@@ -15,14 +15,17 @@ describe('Export Contextpack', () => {
     page.exportContextPackButton().click();
   });
   it('the cancel button should be clicked', () => {
+    page.exportContextPackButton().click();
     page.cancelButton().click();
   });
 
   it('the json should be downloaded', () => {
+    page.exportContextPackButton().click();
     page.downJsonButton().click();
   });
 
   it('the json should be viewable', () => {
+    page.exportContextPackButton().click();
     page.viewContextPackJsonButton().click();
   });
 }
