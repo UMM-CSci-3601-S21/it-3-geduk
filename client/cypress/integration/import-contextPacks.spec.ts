@@ -25,6 +25,7 @@ describe('Import Context Pack', () => {
         page.uploadButton().click();
     });
     it('should not enable the import button', () => {
+        page.mainImportButton().click();
         page.importButton().should('be.disabled');
   });
 });
