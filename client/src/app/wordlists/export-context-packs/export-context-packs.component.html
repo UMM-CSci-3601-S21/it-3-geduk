@@ -1,19 +1,44 @@
 <div class="container">
-  <mat-card class="import-wordlist-card">
+  <mat-card class="import-contextpack-card">
     <h1>Export Pack {{pack.name}}</h1>
 
     <button class="contextpack-download-button"
+    data-test="downloadButton"
     type="button"
     color='primary'
     [disabled]="checkValid(pack) === false"
     (click)='downloadJson(pack , pack.name).click()'
 
     >Download Json</button>
-    <br><button matTooltip="View current Json" (click)="toggleShow()" type="checkbox" data-test="showJsonButton">Preview Json File</button>
-    <div *ngIf='isShown===true'>
+    <div class="btn-container">
 
-    <pre class="form-value" style="font-size:15px">{{ pack | json }}</pre>
-  </div>
+
+      <button
+      mat-raised-button
+      class = "jsonbutton"
+      data-test="showJsonButton"
+      (click)="toggleShow()"
+      >
+      View Context Pack Json
+      </button>
+      <button
+      mat-raised-button
+      class = "cancelbutton"
+      data-test="confirmCancelImportButton"
+      [routerLink]="['/packs', pack._id]"
+      class="cancel-btn"
+      color="warn"
+      >
+      Cancel
+      </button>
+
+      <div *ngIf='isShown===true'>
+
+        <pre class="form-value" style="font-size:15px">{{ pack | json }}</pre>
+        </div>
+    </div>
+
+
 
 </mat-card>
 </div>

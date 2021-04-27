@@ -1,0 +1,116 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.import-contextpack-card {
+  width: 600px;
+  padding: 30px;
+}
+
+
+
+
+.contextpack-download-button  {
+  background: #f15d22;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Rubik", sans-serif;
+  font-size: inherit;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+  background-color: #274dc9;
+  border-radius: 10px;
+  overflow: hidden;
+
+    &:hover {
+      background-color: darken(#274dc9, 10%);
+
+      &::before {
+        right: 75%;
+      }
+    }
+  }
+
+  .jsonbutton {
+    background: #f15d22;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Rubik", sans-serif;
+  font-size: inherit;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  margin-right:130px;
+  outline: none;
+  padding: 1rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+  background-color: #3b0d38;
+  border-radius: 10px;
+  overflow: hidden;
+
+    &:hover {
+      background-color: darken(#450d4b, 10%);
+
+      &::before {
+        right: 75%;
+      }
+    }
+  }
+
+  .cancelbutton{
+    background-color: #ee6d9e;
+    border-radius: 0;
+    overflow: hidden;
+
+
+    span {
+      display: inline-block;
+      height: 100%;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    &::before {
+      color: #fff;
+      content: "\f382";
+      font-family: "Font Awesome 5 Pro";
+      font-size: 130%;
+      height: 100%;
+      left: 0;
+      line-height: 2.6;
+      position: absolute;
+      top: -180%;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: darken(#ee6d9e, 30%);
+
+      span {
+        transform: translateY(300%);
+      }
+
+      &::before {
+        top: 0;
+      }
+    }
+  }
+
