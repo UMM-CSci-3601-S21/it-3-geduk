@@ -7,7 +7,7 @@
       (change)="onFileAdded($event)"
       accept=".json"
     />
-    <label for="file" class="btn-2">Upload JSON</label>
+    <label for="file" data-test="confirmUploadButton" class="btn-2">Upload JSON</label>
 
     <h3 *ngIf="validFile === true" class="success">Valid JSON file!</h3>
     <h3 *ngIf="validFile === false" class="failure">Invalid JSON file!</h3>
