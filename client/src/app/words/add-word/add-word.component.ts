@@ -9,9 +9,7 @@ import { DictionaryService } from './../../services/dictionary-service/dictionar
 })
 export class AddWordComponent implements OnInit {
   @Output() addWord = new EventEmitter();
-  @Output() form = new EventEmitter();
   @Input() words = [];
-  @Input() wordForm = '';
 
   forms = [''];
   counter = [''];
@@ -46,19 +44,6 @@ export class AddWordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(val) {
-    this.forms[this.forms.length - 1] = val;
-    this.forms.push('');
-    this.counter.push(val);
-    this.cleared = false;
-  }
-
-  removeForm(i: number) {
-    this.forms.splice(i, 1);
-    this.counter.splice(i, 1);
-    if (this.forms.length === 0) { this.forms = ['']; }
-  }
-
   suggest() {
     const typed = this.wordName;
     const regEx = /^(.*?)\,/g;
@@ -82,7 +67,6 @@ export class AddWordComponent implements OnInit {
 
   save() {
     const splitInput = this.wordName.split(', ');
-
     splitInput.forEach(val => this.forms.push(val));
 
     this.addWord.emit({
