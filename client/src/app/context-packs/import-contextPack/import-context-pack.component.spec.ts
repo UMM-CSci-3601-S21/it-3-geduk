@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { COMMON_IMPORTS } from 'src/app/app-routing.module';
@@ -14,6 +14,9 @@ import { ImportContextPackComponent } from 'src/app/context-packs/import-context
 import { ContextPack } from 'src/app/datatypes/contextPacks';
 import { WordList } from 'src/app/datatypes/wordlist';
 import { ContextPackService } from 'src/app/services/contextPack-service/contextpack.service';
+import { AppComponent } from 'src/app/app.component';
+import { Location } from '@angular/common';
+
 
 describe('ImportContextPackComponent', () => {
   let component: ImportContextPackComponent;
@@ -73,4 +76,5 @@ describe('ImportContextPackComponent', () => {
     component.contextPack = undefined;
     expect(component.save()).toBe(false);
   });
+
 });
