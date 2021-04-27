@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable } from 'rxjs';
@@ -47,7 +48,7 @@ describe('Display Context-Packs component', () => {
     TestBed.configureTestingModule({
       imports: [COMMON_IMPORTS],
       declarations: [ DisplayContextPacksComponent, ContextPackCardComponent ],
-      providers: [{ provide: ContextPackService, useValue: new MockCPService() }]
+      providers: [{ provide: ContextPackService, useValue: new MockCPService() }, { provide: MatSnackBar }]
     });
   });
 
@@ -72,7 +73,7 @@ describe('Display Context-Packs component', () => {
       icon: 'panda.png',
       enabled: false,
       wordlist: MockCPService.testList,
-  });
+    });
     const idToDelete = 'panda';
     expect(dpContextPacks.contextPacks.length).toBe(4);
     dpContextPacks.removeCP(idToDelete);
@@ -84,6 +85,7 @@ describe('Display Context-Packs component', () => {
   });
 
   it('contains two packs that are enabled', () => {
+    console.log(dpContextPacks.contextPacks);
     expect(dpContextPacks.contextPacks.filter((pack: ContextPack) => pack.enabled === true).length).toBe(2);
   });
 

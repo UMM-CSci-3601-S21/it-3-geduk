@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { WordList } from 'src/app/datatypes/wordlist';
+import { ContextPackService } from 'src/app/services/contextPack-service/contextpack.service';
 import { ContextPack } from '../../datatypes/contextPacks';
 
 @Component({
@@ -15,8 +18,7 @@ export class ContextPackCardComponent implements OnInit {
 
   count: number;
   deleteClicked = false;
-
-  constructor(private router: Router) { }
+  constructor(private contextPackService: ContextPackService, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.countWords();
@@ -40,5 +42,33 @@ export class ContextPackCardComponent implements OnInit {
   toggle(event){
     event.stopPropagation();
     this.deleteClicked = !this.deleteClicked;
+  }
+
+  setEnableOrDisable(element,contextPack: ContextPack){
+    console.log(element);
+    if(contextPack !== null){
+      if(element.textContent === 'disable'){
+        element.textContent = 'enable';
+        contextPack.enabled = false;
+      }
+      else{
+        element.textContent = 'disable';
+        contextPack.enabled = true;
+      }
+      this.submit(contextPack);
+      return(contextPack.enabled.toString());
+    }
+  }
+
+  submit(cp: ContextPack) {
+    this.contextPackService.updateContextPack(cp, cp._id).subscribe(contextpack => {
+      this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated ' , null, {
+        duration: 2000,
+      });
+    }, err => {
+      this.snackBar.open('Failed to update the pack', 'OK', {
+        duration: 5000,
+      });
+    });
   }
 }

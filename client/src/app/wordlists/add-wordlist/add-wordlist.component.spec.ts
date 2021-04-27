@@ -22,12 +22,9 @@ describe('AddWordListComponent', () => {
       imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([
         { path: 'packs/:id', component: DisplayWordlistComponent }
       ]), COMMON_IMPORTS],
-      providers: [{ provide: WordListService, useValue: new MockWordListService()}, {
-        provide: ActivatedRoute,
-        useValue: {
-          paramMap: of(paramMap)
-        }
-      }
+      providers: [
+        { provide: WordListService, useValue: new MockWordListService()},
+        { provide: ActivatedRoute, useValue: {paramMap: of(paramMap)}},
       ]
     })
       .compileComponents();
