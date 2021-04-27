@@ -46,8 +46,8 @@ export class AddWordComponent implements OnInit {
 
   suggest() {
     const typed = this.wordName;
-    const regEx = /^(.*?)\,/g;
-    const firstWord = this.wordName.split(regEx);
+    const firstWord = this.wordName.split(', ');
+    console.log('First word: ' + firstWord);
     setTimeout(() => {
       if (this.wordName && typed === this.wordName) {
         this.dictionary.getType(firstWord[0], type => {
