@@ -173,5 +173,4 @@ public class WordRiverController {
     } else {
       ctx.json(wordlists);
     }
-  }
-}
+  }}
