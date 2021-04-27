@@ -51,6 +51,12 @@ describe('WordList', () => {
       cy.get('.mat-simple-snackbar').should('contain',`Birthday pack test pack Pack is Updated`);
     });
 
+    it('Should delete the wordlist from the context pack', () => {
+      page.getDeleteToggleButton().click();
+      page.getDeleteButton().click();
+      page.getWordListCards().should('have.length', '0');
+    });
+
     it('Should show a confirmation message when delete context pack is clicked', () => {
         page.clickDeleteContextPack().click();
         page.getDeleteContextPackConfirmation().should('be.visible');
