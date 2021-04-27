@@ -7,7 +7,7 @@
     <div class="fields">
         <mat-form-field class="new-word">
           <mat-label>New word, word forms</mat-label>
-          <input matInput (input)="check()" data-test="newWord" [(ngModel)]="wordName" name="name" (keyup)="suggest()"
+          <input matInput (input)="check()" data-test="newWord" [(ngModel)]="wordName" name="name" (keyup)="suggest()" (keyup.enter)="save()"
             placeholder="Enter a new word">
         </mat-form-field>
 
