@@ -6,7 +6,7 @@ export class ExportContextPackPage {
     return cy.get('[data-test=exportContextPackButton]');
   }
   cancelButton(){
-    return cy.get('[data-test=exportContextPackButton]');
+    return cy.get('[data-test=confirmCancelImportButton]');
   }
 
   downJsonButton(){
@@ -14,6 +14,6 @@ export class ExportContextPackPage {
   }
 
   viewContextPackJsonButton(){
-    return cy.get('[data-test=confirmCancelImportButton]');
+    return cy.get('[data-test="showJsonButton"]');
   }
 }
