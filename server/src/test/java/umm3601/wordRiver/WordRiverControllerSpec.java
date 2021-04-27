@@ -483,4 +483,61 @@ public class WordRiverControllerSpec {
     });
   }
 
+
+
+  @Test
+  public void updateContextPack() throws IOException {
+
+    String testNewContextPack = "{" + "\"schema\": \"Test schema\"," + "\"name\": \"Test Context Pack\","
+    + "\"icon\": \"image.png\"," + "\"enabled\": true," + "\"wordlists\": []" + "}";
+
+    mockReq.setBodyContent(testNewContextPack);
+    mockReq.setMethod("POST");
+
+    Context ctx = ContextUtil.init(mockReq, mockRes, "api/packs");
+    wordRiverController.addNewContextPack(ctx);
+    String result = ctx.resultString();
+    String id = jsonMapper.readValue(result, ObjectNode.class).get("id").asText();
+    assertEquals(201, mockRes.getStatus());
+
+    String testContextPack = "{" + "\"schema\": \"Test schema\"," + "\"name\": \"Tes Context Pack\","
+    + "\"icon\": \"image.png\"," + "\"enabled\": true," + "\"wordlists\": []" + "}";
+
+
+    mockReq.setBodyContent(testContextPack);
+    mockReq.setMethod("PUT");
+    Context ctxxContext = ContextUtil.init(mockReq, mockRes,"/api/packs/:id",ImmutableMap.of("id", id));
+    wordRiverController.updateContextPack(ctxxContext);
+    assertEquals(201, mockRes.getStatus());
+
+
+
+    assertEquals(1, db.getCollection("packs").countDocuments(eq("_id", new ObjectId(id))));
+
+    Document update = db.getCollection("packs").find(eq("_id", new ObjectId(id))).first();
+    assertNotNull(update);
+    assertEquals("Tes Context Pack", update.getString("name"));
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

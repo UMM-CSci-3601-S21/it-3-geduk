@@ -45,4 +45,8 @@ export class ContextPackService {
     localStorage.setItem('data',JSON.stringify(this.data));
     return(this.data.name + ' is set in the local storage');
   }
+
+  updateContextPack(updatePack: ContextPack, id: string): Observable<ContextPack> {
+    return this.httpClient.put<ContextPack>(this.contextPackUrl + '/' + id , updatePack).pipe(map(res => res));
+  }
 }

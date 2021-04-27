@@ -44,7 +44,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ImportContextPackComponent } from './context-packs/import-contextPack/import-context-pack.component';
 import { ExportContextPacksComponent } from './wordlists/export-context-packs/export-context-packs.component';
-
+import { OverlayModule } from '@angular/cdk/overlay';
 
 const MATERIAL_MODULES: any[] = [
   MatListModule,
@@ -97,7 +97,8 @@ const MATERIAL_MODULES: any[] = [
     MATERIAL_MODULES,
     LayoutModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    OverlayModule
   ],
   providers: [
     WordListService,

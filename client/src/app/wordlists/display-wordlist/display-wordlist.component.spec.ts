@@ -9,12 +9,15 @@ import { DisplayWordlistComponent } from './display-wordlist.component';
 import { MockCPService } from 'src/testing/context-pack.service.mock';
 import { ContextPackService } from 'src/app/services/contextPack-service/contextpack.service';
 import { of } from 'rxjs';
+import { ContextPack } from 'src/app/datatypes/contextPacks';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 describe('DisplayWordlistComponent', () => {
   let component: DisplayWordlistComponent;
   let fixture: ComponentFixture<DisplayWordlistComponent>;
   let service: MockCPService;
   const routerSpy = {navigate: jasmine.createSpy('navigate')};
+  const matsnackbarSpy = {open: jasmine.createSpy('open')};
   const paramMap = new Map();
   paramMap.set('id', 'moo');
 
@@ -26,6 +29,7 @@ describe('DisplayWordlistComponent', () => {
       providers: [{ provide: WordListService, useValue: new MockWordListService() },
       { provide: ContextPackService, useValue: new MockCPService() },
       {provide: Router, useValue: routerSpy},
+      {provide: MatSnackBar,useValue: matsnackbarSpy},
       {
         provide: ActivatedRoute,
         useValue: {
@@ -87,5 +91,42 @@ describe('DisplayWordlistComponent', () => {
     expect (routerSpy.navigate).toHaveBeenCalledWith(['/packs/boo/export']);
     });
 
+  it('should save', () => {
+    component.pack = {
+      _id: 'moo',
+      schema: 'https://raw.githubusercontent.com/kidstech/story-builder/master/Assets/packs/schema/pack.schema.json',
+      name: 'bovines',
+      icon: 'image.png',
+      enabled: true,
+      wordlist: MockCPService.testList,
+    };
+    component.name = 'cows';
+    component.save();
+    expect(component).toBeTruthy();
+  });
+
+  it('should change the value of the button and wordlist value for enable. It would then update the context pack'+
+   'with the new version', () => {
+    const element = {
+      textContent: 'disable'
+    };
+    console.log(element);
+    spyOn(component,'submit');
+    expect(component.setEnableOrDisable(element,component.pack)).toEqual('false');
+  });
+
+
+  it('should submit the context pack', () => {
+
+    const response: ContextPack = component.pack;
+
+
+    spyOn(ContextPackService.prototype, 'updateContextPack').and.returnValue(of(response));
+    expect(component.submit(component.pack));
+
+
+
+    expect (matsnackbarSpy.open).toHaveBeenCalledWith( 'Felines Pack is Updated', null, Object({ duration: 2000 }) );
+  });
 
 });

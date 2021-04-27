@@ -1,3 +1,4 @@
+import { ObserversModule } from '@angular/cdk/observers';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ContextPack } from 'src/app/datatypes/contextPacks';
@@ -113,6 +114,7 @@ export class MockCPService extends ContextPackService {
             wordlist: MockCPService.testList,
         }
     ];
+
     constructor() {
       super(null);
     }
@@ -125,7 +127,7 @@ export class MockCPService extends ContextPackService {
     }
 
     deletePack(id: string): Observable<string>{
-      MockCPService.testCPs= MockCPService.testCPs.filter(cp=> cp._id!==id);
+      MockCPService.testCPs = MockCPService.testCPs.filter(cp=> cp._id!==id);
       return of(id);
     }
     addPack(newPack: { name: string; icon: string; enabled: boolean; wordlists?: any[] }): Observable<string> {
@@ -133,6 +135,17 @@ export class MockCPService extends ContextPackService {
     }
     addedPack(newPack): Observable<string> {
       return of('fakeid');
+    }
+    updateContextPack(cp: ContextPack, id: string): Observable<ContextPack>{
+      MockCPService.testCPs = MockCPService.testCPs.map(w =>{
+        if(w._id === id) {
+          return cp;
+        }
+        else {
+          return w;
+        }
+      });
+      return of(MockCPService.testCPs.filter(e=>e._id === id)[0]);
     }
     includes(cp: ContextPack){
       return MockCPService.testCPs.some(e=>e._id === cp._id);
