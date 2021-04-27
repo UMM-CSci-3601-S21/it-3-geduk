@@ -21,6 +21,7 @@ import { Location } from '@angular/common';
 describe('ImportContextPackComponent', () => {
   let component: ImportContextPackComponent;
   let fixture: ComponentFixture<ImportContextPackComponent>;
+  const routerSpy = {navigate: jasmine.createSpy('navigate')};
   const paramMap = new Map();
   paramMap.set('id', 'meow');
   const testList: Array<WordList> = [];
@@ -40,7 +41,8 @@ describe('ImportContextPackComponent', () => {
       imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([
         { path: 'packs/meow', component: DisplayContextPacksComponent }
       ]), COMMON_IMPORTS],
-      providers: [{ provide: ContextPackService, useValue: new MockCPService() }, {
+      providers: [{ provide: ContextPackService, useValue: new MockCPService() },
+        {provide: Router, useValue: routerSpy}, {
         provide: ActivatedRoute,
         useValue: {
           paramMap: of(paramMap)
@@ -73,8 +75,7 @@ describe('ImportContextPackComponent', () => {
     component.contextPack = contextPack;
     component.id = 'meow';
     expect(component.save()).toBe(true);
-    component.contextPack = undefined;
-    expect(component.save()).toBe(false);
+    expect (routerSpy.navigate).toHaveBeenCalledWith([ '/packs/', 'fakeid']);
   });
 
 });
