@@ -47,4 +47,14 @@ describe('WordlistCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggle delete confirmation', () => {
+    component.deleteClicked = true;
+    component.toggleConfirmation();
+    expect(component.deleteClicked).toBe(false);
+  });
+
+  it('should delete a wordlist', () => {
+    expect(component.deleteWordList()).toBeTruthy();
+  });
 });

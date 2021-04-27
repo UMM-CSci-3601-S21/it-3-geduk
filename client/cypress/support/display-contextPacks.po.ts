@@ -35,4 +35,5 @@ export class DisplayContextPacksComponent {
       return cy.get('[data-test=setEnableButton]').click({multiple: true});
     }
 
+
 }
