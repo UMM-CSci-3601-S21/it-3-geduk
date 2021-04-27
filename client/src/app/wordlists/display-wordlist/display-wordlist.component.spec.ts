@@ -115,7 +115,7 @@ describe('DisplayWordlistComponent', () => {
 
 
 
-    expect (matsnackbarSpy.open).toHaveBeenCalledWith( 'Felines Pack is Updated ', null, Object({ duration: 2000 }) );
+    expect (matsnackbarSpy.open).toHaveBeenCalledWith( 'Felines Pack is Updated', null, Object({ duration: 2000 }) );
   });
 
 });
