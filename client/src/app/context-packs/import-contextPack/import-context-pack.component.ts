@@ -36,6 +36,7 @@ export class ImportContextPackComponent implements OnInit {
           this.validFile = false;
         } else {
           this.validFile = true;
+          console.log(this.contextPack);
         }
       } catch (err) {
         this.validFile = false;
@@ -46,7 +47,7 @@ export class ImportContextPackComponent implements OnInit {
 
   save(){
     if(this.contextPack){
-      this.service.addPack(this.contextPack).subscribe(newID  =>
+      this.service.addedPack(this.contextPack).subscribe(newID  =>
 
         {
         this.router.navigate(['/packs/',newID]);
