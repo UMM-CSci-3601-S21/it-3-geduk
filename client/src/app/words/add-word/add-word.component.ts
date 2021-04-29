@@ -46,7 +46,7 @@ export class AddWordComponent implements OnInit {
 
   suggest() {
     const typed = this.wordName;
-    const firstWord = this.wordName.split(', ');
+    const firstWord = this.wordName.split(',');
     setTimeout(() => {
       if (this.wordName && typed === this.wordName) {
         this.dictionary.getType(firstWord[0], type => {
@@ -65,8 +65,8 @@ export class AddWordComponent implements OnInit {
   }
 
   save() {
-    const splitInput = this.wordName.split(', ');
-    splitInput.forEach(val => this.forms.push(val));
+    const splitInput = this.wordName.split(',');
+    splitInput.forEach(val => this.forms.push(val.trim()));
 
     this.addWord.emit({
       name: splitInput[0],
