@@ -37,6 +37,7 @@ describe('Display Context Pack', () => {
       });
     });
 
+
     it('Should click add context pack and go to the right URL',() => {
         page.addCpButton().click();
         cy.url().should(url => expect(url.endsWith('/packs/new')).to.be.true);
@@ -65,5 +66,4 @@ describe('Display Context Pack', () => {
         cy.get('#button').should('have.text', 'enable');
     });
   });
-
 });

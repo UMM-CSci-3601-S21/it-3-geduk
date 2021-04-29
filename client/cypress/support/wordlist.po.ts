@@ -60,4 +60,12 @@ export class WordListPage {
       return cy.get('[data-test=saveWordListButton]');
     }
 
+    getDeleteToggleButton() {
+      return cy.get('[data-test=toggle-delete]');
+    }
+
+    getDeleteButton() {
+      return cy.get('[data-test=deleteWordListButton]');
+    }
+
 }
