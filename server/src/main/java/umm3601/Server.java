@@ -77,6 +77,9 @@ public class Server {
     // Deletes a Wordlist
     server.delete("/api/packs/:id/:name", wordRiverController::deleteWordList);
 
+    // Updates a context pack
+    server.put("/api/packs/:id", wordRiverController::updateContextPack);
+
     // Throws an exception if there is one
     server.exception(Exception.class, (e, ctx) -> {
       ctx.status(500);

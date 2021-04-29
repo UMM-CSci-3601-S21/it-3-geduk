@@ -12,6 +12,10 @@ describe('WordList', () => {
         page.navigateTo();
     });
 
+    afterEach(() => {
+      cy.task('seed:database');
+    });
+
     it('Should load wordlists', () => {
         page.getWordListCards().should('not.have.length', '0');
     });
@@ -34,7 +38,26 @@ describe('WordList', () => {
         cy.url().should(url => expect(url.endsWith('/packs/605bc9d893b2d94300a98753/import')).to.be.true);
     });
 
-    it('Should show a confirmation message when click delete context pack is clicked', () => {
+    it('Should change the status of the context pack to disabled and back', () =>{
+      page.getEnableDisableButton().click();
+      page.getEnableDisableButton().contains('enable');
+      page.getEnableDisableButton().click();
+      page.getEnableDisableButton().contains('disable');
+    });
+
+    it('Should change the name of the context pack and back', () => {
+      page.getNameBox().click().type(' Test Pack');
+      page.getSaveButton().click();
+      cy.get('.mat-simple-snackbar').should('contain',`Birthday pack test pack Pack is Updated`);
+    });
+
+    it('Should delete the wordlist from the context pack', () => {
+      page.getDeleteToggleButton().click();
+      page.getDeleteButton().click();
+      page.getWordListCards().should('have.length', '0');
+    });
+
+    it('Should show a confirmation message when delete context pack is clicked', () => {
         page.clickDeleteContextPack().click();
         page.getDeleteContextPackConfirmation().should('be.visible');
     });
@@ -52,7 +75,6 @@ describe('WordList', () => {
         page.getDeleteContextPackConfirmDeleteButton().click();
         cy.url().should('match', /\/$/);
         page.getCpCards().should('have.length', 3);
-
     });
 
 });

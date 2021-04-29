@@ -1,10 +1,20 @@
-  <a [routerLink]="['/packs', id, this.wordlist.name]">
-  <mat-card class="wordList-card" data-test="viewWordListButton">
+<mat-card class="wordList-card" data-test="viewWordListButton">
   <div>
     <div class="card-header">
-      <h1 class="wordList-name">{{wordlist.name}}</h1>
+      <h1 class="wordList-name" [routerLink]="['/packs', id, this.wordlist.name]">{{wordlist.name}}</h1>
       {{wordlist.enabled ? 'Enabled' : 'Disabled'}}
       <mat-icon matListIcon>{{wordlist.enabled ? 'done' : ''}}</mat-icon>
+      <div *ngIf="!deleteClicked">
+        <button mat-raised-button data-test="toggle-delete" (click)="toggleConfirmation()" class="delete"
+          color="accent">Delete</button>
+      </div>
+      <div class="confirmation" *ngIf="deleteClicked">
+        <h3 style="flex: 1;">Are you sure you want to delete? </h3>
+        <button data-test="deleteWordListButton" style="margin-bottom: 5px;" mat-raised-button
+          (click)="deleteWordList()" color="accent">Delete</button>
+        <button data-test="cancel-delete" mat-raised-button class="cancel" (click)="toggleConfirmation()"
+          color="link">Cancel</button>
+      </div>
     </div>
   </div>
   <mat-card-content>
@@ -46,4 +56,3 @@
     <!-- <button *ngIf="!disableButton" data-test="viewWordListButton" mat-button [routerLink]="['/packs', id, this.wordlist.name]" class="btn">View WordList</button> -->
   </div>
 </mat-card>
-</a>

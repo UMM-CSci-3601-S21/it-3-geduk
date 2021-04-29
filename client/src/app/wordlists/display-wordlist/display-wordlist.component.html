@@ -13,8 +13,17 @@
               class="cp-icon"
             />
             <div class="cp-profile">
-              <h2>{{ pack ? pack.name : "" }}</h2>
-              <h5>{{ pack ? (pack.enabled ? "Enabled" : "Disabled") : "" }}</h5>
+              <mat-form-field class="title">
+                <mat-label>Edit Context Pack Name</mat-label>
+                <input matInput name="name" [(ngModel)]="name" data-test="nameBox">
+              </mat-form-field>
+              <div *ngIf='pack.enabled === true'>
+                <button mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event.target,pack);$event.stopPropagation()" >disable</button>
+              </div>
+
+              <div *ngIf='pack.enabled === false'>
+                <button  mat-button id = "button"  data-test="setEnableButton" (click)="setEnableOrDisable($event.target,pack);$event.stopPropagation()" >enable</button>
+              </div>
             </div>
             <button
               *ngIf="!deleteClicked"
@@ -89,6 +98,8 @@
         >
           Import wordlist
         </button>
+        <button mat-raised-button [disabled]="!true" class="save" style="padding:20px;margin-top: 20px;" color="primary"
+        (click)="save()" data-test="saveWordListButton">Save Context Pack</button>
       </div>
     </div>
     <div class="right">

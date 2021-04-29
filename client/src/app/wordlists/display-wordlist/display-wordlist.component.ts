@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { WordList } from 'src/app/datatypes/wordlist';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContextPack } from 'src/app/datatypes/contextPacks';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-display-wordlist',
@@ -12,6 +13,7 @@ import { ContextPack } from 'src/app/datatypes/contextPacks';
 })
 export class DisplayWordlistComponent implements OnInit {
   title = 'Word Lists';
+  name = '';
   list: WordList[] = [];
   pack: ContextPack;
   wordcount = 0;
@@ -22,7 +24,9 @@ export class DisplayWordlistComponent implements OnInit {
     private route: ActivatedRoute,
     private service: WordListService,
     private cpservice: ContextPackService,
-    private router: Router
+    private router: Router,
+    private contextPackService: ContextPackService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +35,9 @@ export class DisplayWordlistComponent implements OnInit {
     });
     this.cpservice.getPack(this.id).subscribe(cp=>{
       this.pack = cp;
+      // console.log(this.pack);
       this.list = cp.wordlists;
+      this.name = cp.name;
       this.countWords();
     });
   }
@@ -52,5 +58,39 @@ export class DisplayWordlistComponent implements OnInit {
     });
   }
 
+  setEnableOrDisable(element,contextPack: ContextPack){
+    if(contextPack !== null){
+      console.log(element);
+      if(element.textContent === 'disable'){
+        element.textContent = 'enable';
+        contextPack.enabled = false;
+        console.log(contextPack.enabled);
+      }
+      else{
+        element.textContent = 'disable';
+        contextPack.enabled = true;
+        console.log(contextPack.enabled);
+      }
+      this.submit(contextPack);
+      return(contextPack.enabled.toString());
+    }
+  }
 
+  save() {
+    this.pack.name = this.name.replace(/([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g, '').trim();
+    this.submit(this.pack);
+  }
+
+  submit(cp: ContextPack) {
+    this.contextPackService.updateContextPack(cp, cp._id).subscribe(contextpack => {
+
+      this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated' , null, {
+        duration: 2000,
+      });
+    }, err => {
+      this.snackBar.open('Failed to update the pack', 'OK', {
+        duration: 5000,
+      });
+    });
+  }
 }

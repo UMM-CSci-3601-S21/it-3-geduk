@@ -89,8 +89,12 @@ export class MockWordListService extends WordListService {
   }
   editWordList(name: string, wordlist: WordList, id: string): Observable<WordList>{
     this.testWordLists = this.testWordLists.map(w=>{
-      if(w.name === name) {return wordlist;}
-      else {return w;}
+      if(w.name === name) {
+        return wordlist;
+      }
+      else {
+        return w;
+      }
     });
     return of(this.testWordLists.filter(e=>e.name === name)[0]);
   }

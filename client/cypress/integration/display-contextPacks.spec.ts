@@ -4,6 +4,10 @@ const page = new DisplayContextPacksComponent();
 
 describe('Display Context Pack', () => {
 
+    before(() => {
+      cy.task('seed:database');
+    });
+
     beforeEach(() => {
         page.navigateTo();
         cy.task('seed:database');
@@ -33,6 +37,7 @@ describe('Display Context Pack', () => {
       });
     });
 
+
     it('Should click add context pack and go to the right URL',() => {
         page.addCpButton().click();
         cy.url().should(url => expect(url.endsWith('/packs/new')).to.be.true);
@@ -45,4 +50,20 @@ describe('Display Context Pack', () => {
         page.getCpCards().should('have.length', 3);
 
     });
+
+    it('Should click the disable button and enable', () => {
+      page.getCpCards().first().then((card) => {
+        cy.get('#button').should('have.text', 'enable');
+        page.clickButton();
+        cy.get('#button').should('have.text', 'disable');
+        page.clickButton();
+        cy.get('#button').should('have.text', 'enable');
+        page.clickViewCp(page.getCpCards().first());
+        cy.get('#button').should('have.text', 'enable');
+        page.clickButton();
+        cy.get('#button').should('have.text', 'disable');
+        page.clickButton();
+        cy.get('#button').should('have.text', 'enable');
+    });
+  });
 });
