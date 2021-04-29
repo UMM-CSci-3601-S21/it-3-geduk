@@ -11,6 +11,7 @@ import { ContextPackService } from 'src/app/services/contextPack-service/context
 import { of } from 'rxjs';
 import { ContextPack } from 'src/app/datatypes/contextPacks';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SubmitService } from 'src/app/services/submit.service';
 
 describe('DisplayWordlistComponent', () => {
   let component: DisplayWordlistComponent;
@@ -36,7 +37,8 @@ describe('DisplayWordlistComponent', () => {
         useValue: {
           paramMap: of(paramMap)
         }
-      }
+      },
+      { provide: SubmitService }
       ]
     })
       .compileComponents();

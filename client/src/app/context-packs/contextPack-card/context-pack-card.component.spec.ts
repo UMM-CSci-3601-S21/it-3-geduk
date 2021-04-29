@@ -14,6 +14,7 @@ import { ContextPack } from 'src/app/datatypes/contextPacks';
 import { of } from 'rxjs';
 import { Overlay } from '@angular/cdk/overlay';
 import { matSelectAnimations } from '@angular/material/select';
+import { SubmitService } from 'src/app/services/submit.service';
 
 
 describe('CpCardComponent', () => {
@@ -34,7 +35,8 @@ describe('CpCardComponent', () => {
       providers: [
         { provide: ContextPackService, useValue: new MockCPService() },
         { provide: MatSnackBar, useValue: matsnackbarSpy },
-        { provide: Overlay }
+        { provide: Overlay },
+        { provide: SubmitService }
       ]
     })
     .compileComponents();
