@@ -133,6 +133,9 @@ export class MockCPService extends ContextPackService {
     addPack(newPack: { name: string; icon: string; enabled: boolean; wordlists?: any[] }): Observable<string> {
       return of('fakeid');
     }
+    addedPack(newPack): Observable<string> {
+      return of('fakeid');
+    }
     updateContextPack(cp: ContextPack, id: string): Observable<ContextPack>{
       MockCPService.testCPs = MockCPService.testCPs.map(w =>{
         if(w._id === id) {

@@ -41,6 +41,8 @@ import { AddContextPackComponent } from './context-packs/add-contextPacks/add-co
 import { ContextPackService } from './services/contextPack-service/contextpack.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ImportContextPackComponent } from './context-packs/import-contextPack/import-context-pack.component';
+import { ExportContextPacksComponent } from './wordlists/export-context-packs/export-context-packs.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 const MATERIAL_MODULES: any[] = [
@@ -78,7 +80,9 @@ const MATERIAL_MODULES: any[] = [
     WordlistCardComponent,
     DisplayContextPacksComponent,
     ContextPackCardComponent,
-    AddContextPackComponent
+    AddContextPackComponent,
+    ImportContextPackComponent,
+    ExportContextPacksComponent,
   ],
   imports: [
     BrowserModule,

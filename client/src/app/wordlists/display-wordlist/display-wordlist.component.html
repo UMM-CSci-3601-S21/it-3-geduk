@@ -98,6 +98,16 @@
         >
           Import wordlist
         </button>
+
+        <button
+          data-test="exportContextPackButton"
+          mat-stroked-button
+          (click)="saveAndRoute(pack)"
+          color="accent"
+        >
+         Export Context Pack
+        </button>
+
         <button mat-raised-button [disabled]="!true" class="save" style="padding:20px;margin-top: 20px;" color="primary"
         (click)="save()" data-test="saveWordListButton">Save Context Pack</button>
       </div>
