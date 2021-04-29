@@ -33,23 +33,6 @@ describe('AddWordComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('add() should add a form', () => {
-    expect(component.forms).toEqual(['']);
-    component.add('bears');
-    expect(component.forms).toEqual(['bears', '']);
-  });
-  it('removeForm() should remove a form when there is more than one', () => {
-    component.add('bears');
-    component.add('tuna');
-    expect(component.forms).toEqual(['bears', 'tuna', '']);
-    component.removeForm(0);
-    expect(component.forms).toEqual(['tuna', '']);
-  });
-  it('removeForm() should remove last form but keep a placeholder', () => {
-    component.forms = [''];
-    component.removeForm(0);
-    expect(component.forms).toEqual(['']);
-  });
 
   it('should not accept empty names and types', () => {
     component.wordName = '';
