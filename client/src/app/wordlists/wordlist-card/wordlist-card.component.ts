@@ -2,7 +2,6 @@ import { WordList } from './../../datatypes/wordlist';
 import { Component, Input } from '@angular/core';
 import { WordListService } from '../../services/wordlist.service';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-wordlist-card',
