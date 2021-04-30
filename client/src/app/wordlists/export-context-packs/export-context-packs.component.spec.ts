@@ -90,6 +90,20 @@ describe('ExportContextPacksComponent', () => {
       expect(component.toggleShow()).toBeTruthy();
     });
   });
+  describe('Check if pack is valid', ()=>{
+    it('should check if pack is valid', ()=>{
+      expect(component.checkValid(component.contextpack)).toEqual(true);
+      const falseName = component.contextpack;
+      falseName.name = null;
+      expect(component.checkValid(falseName)).toEqual(false);
+      const falseEnable = component.contextpack;
+      falseEnable.enabled = null;
+      expect(component.checkValid(falseEnable)).toEqual(false);
+      const falseWordlist = component.contextpack;
+      falseWordlist.wordlist = null;
+      expect(component.checkValid(falseWordlist)).toEqual(false);
+    });
+  });
 
 
 
