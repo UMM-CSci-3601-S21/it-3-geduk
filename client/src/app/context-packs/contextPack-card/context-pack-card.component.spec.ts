@@ -14,6 +14,7 @@ import { ContextPack } from 'src/app/datatypes/contextPacks';
 import { of } from 'rxjs';
 import { Overlay } from '@angular/cdk/overlay';
 import { matSelectAnimations } from '@angular/material/select';
+import { SubmitService } from 'src/app/services/submit.service';
 
 
 describe('CpCardComponent', () => {
@@ -35,7 +36,8 @@ describe('CpCardComponent', () => {
         { provide: ContextPackService, useValue: new MockCPService() },
         {provide: Router, useValue: routerSpy},
         { provide: MatSnackBar, useValue: matsnackbarSpy },
-        { provide: Overlay }
+        { provide: Overlay },
+        { provide: SubmitService }
       ]
     })
     .compileComponents();
@@ -123,6 +125,6 @@ describe('CpCardComponent', () => {
     expect(cpCard.submit(cpCard.contextPack));
 
 
-    expect(matsnackbarSpy.open).toHaveBeenCalledWith('Iron man Pack is Updated ', null, Object({ duration: 2000 }));
+    expect(matsnackbarSpy.open).toHaveBeenCalledWith('Iron man Pack is Updated', null, Object({ duration: 2000 }));
   });
 });

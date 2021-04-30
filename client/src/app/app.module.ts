@@ -44,6 +44,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ImportContextPackComponent } from './context-packs/import-contextPack/import-context-pack.component';
 import { ExportContextPacksComponent } from './wordlists/export-context-packs/export-context-packs.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { HttpClient } from '@angular/common/http';
 
 const MATERIAL_MODULES: any[] = [
   MatListModule,
