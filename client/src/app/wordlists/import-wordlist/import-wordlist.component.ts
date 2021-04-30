@@ -43,7 +43,7 @@ export class ImportWordlistComponent implements OnInit {
   }
 
   save(){
-    if(this.wordlist){
+    if(this.wordlist !== null){
       this.service.addWordList(this.wordlist, this.id).subscribe(_a => this.router.navigate(['packs', this.id]));
       return true;
     }
