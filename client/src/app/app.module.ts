@@ -43,6 +43,7 @@ import { ContextPackService } from './services/contextPack-service/contextpack.s
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { HttpClient } from '@angular/common/http';
 
 const MATERIAL_MODULES: any[] = [
   MatListModule,

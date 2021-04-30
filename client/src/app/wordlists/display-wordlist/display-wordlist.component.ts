@@ -73,13 +73,17 @@ export class DisplayWordlistComponent implements OnInit {
         contextPack.enabled = true;
         console.log(contextPack.enabled);
       }
-      this.submitService.submit(contextPack);
+      this.submit(contextPack);
       return(contextPack.enabled.toString());
     }
   }
 
   save() {
     this.pack.name = this.name.replace(/([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g, '').trim();
-    this.submitService.submit(this.pack);
+    this.submit(this.pack);
+  }
+
+  submit(cp: ContextPack){
+    this.submitService.submit(cp);
   }
 }

@@ -61,8 +61,12 @@ export class ContextPackCardComponent implements OnInit {
         element.textContent = 'disable';
         contextPack.enabled = true;
       }
-      this.submitService.submit(contextPack);
+      this.submit(contextPack);
       return(contextPack.enabled.toString());
     }
+  }
+
+  submit(cp: ContextPack) {
+    this.submitService.submit(cp);
   }
 }

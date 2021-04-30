@@ -112,6 +112,6 @@ describe('CpCardComponent', () => {
     expect(cpCard.submit(cpCard.contextPack));
 
 
-    expect(matsnackbarSpy.open).toHaveBeenCalledWith('Iron man Pack is Updated ', null, Object({ duration: 2000 }));
+    expect(matsnackbarSpy.open).toHaveBeenCalledWith('Iron man Pack is Updated', null, Object({ duration: 2000 }));
   });
 });
