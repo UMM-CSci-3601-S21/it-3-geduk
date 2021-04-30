@@ -28,6 +28,7 @@ describe('DictionaryService', () => {
   it('generateLink() generates the right link', () => {
     const link = service.generateLink('bear');
     expect(link).toEqual('https://www.dictionaryapi.com/api/v3/references/collegiate/json/bear?key=94e92282-3952-43b4-bde3-f54f1e0fc4fb');
+    const link2 = service.generateLink('bedfdfdfar');
   });
 
 });

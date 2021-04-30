@@ -17,10 +17,8 @@ describe('DisplayWordlistComponent', () => {
   let component: DisplayWordlistComponent;
   let fixture: ComponentFixture<DisplayWordlistComponent>;
   let service: MockCPService;
-
+  const routerSpy = {navigate: jasmine.createSpy('navigate')};
   const matsnackbarSpy = {open: jasmine.createSpy('open')};
-
-
   const paramMap = new Map();
   paramMap.set('id', 'moo');
 
@@ -31,6 +29,7 @@ describe('DisplayWordlistComponent', () => {
       imports: [HttpClientTestingModule, RouterTestingModule, RouterModule.forRoot([]), COMMON_IMPORTS],
       providers: [{ provide: WordListService, useValue: new MockWordListService() },
       { provide: ContextPackService, useValue: new MockCPService() },
+      {provide: Router, useValue: routerSpy},
       {provide: MatSnackBar,useValue: matsnackbarSpy},
       {
         provide: ActivatedRoute,
@@ -81,6 +80,18 @@ describe('DisplayWordlistComponent', () => {
     component.delete();
     expect(service.includes(component.pack)).toBe(false);
   });
+  it('should navigate', () => {
+    component.pack = {
+      _id: 'boo',
+      schema: 'https://raw.githubusercontent.com/kidstech/story-builder/master/Assets/packs/schema/pack.schema.json',
+      name: 'bovines',
+      icon: 'image.png',
+      enabled: true,
+      wordlist: MockCPService.testList
+    };
+    expect(component.saveAndRoute(component.pack));
+    expect (routerSpy.navigate).toHaveBeenCalledWith(['/packs/boo/export']);
+    });
 
   it('should save', () => {
     component.pack = {

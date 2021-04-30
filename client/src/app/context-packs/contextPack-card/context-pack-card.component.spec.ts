@@ -20,7 +20,7 @@ import { SubmitService } from 'src/app/services/submit.service';
 describe('CpCardComponent', () => {
   let cpCard: ContextPackCardComponent;
   let fixture: ComponentFixture<ContextPackCardComponent>;
-
+  const routerSpy = {navigate: jasmine.createSpy('navigate')};
   const matsnackbarSpy = { open: jasmine.createSpy('open') };
 
   beforeEach(async () => {
@@ -34,6 +34,7 @@ describe('CpCardComponent', () => {
       declarations: [ ContextPackCardComponent ],
       providers: [
         { provide: ContextPackService, useValue: new MockCPService() },
+        {provide: Router, useValue: routerSpy},
         { provide: MatSnackBar, useValue: matsnackbarSpy },
         { provide: Overlay },
         { provide: SubmitService }
@@ -43,6 +44,7 @@ describe('CpCardComponent', () => {
   });
 
   beforeEach(() => {
+    const contextPack= {_id: 'hey'};
     const testList: Array<WordList> = MockCPService.testList;
     fixture = TestBed.createComponent(ContextPackCardComponent);
     cpCard = fixture.componentInstance;
@@ -66,7 +68,18 @@ describe('CpCardComponent', () => {
     expect(cpCard).toBeTruthy();
     expect(cpCard.deletePack({ stopPropagation: () => { } })).toBeUndefined();
   });
+  it('should open a context pack', () => {
+    expect(cpCard).toBeTruthy();
+    expect(cpCard.openContextPack());
+    expect (routerSpy.navigate).toHaveBeenCalledWith(['packs', 'computer']);
 
+
+  });
+
+  it('should toggle ', () => {
+    expect(cpCard).toBeTruthy();
+    expect(cpCard.toggle({ stopPropagation: () => { } })).toBeUndefined();
+  });
   it('count the words', () => {
     cpCard.contextPack = {
       _id: 'computer',

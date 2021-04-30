@@ -57,12 +57,28 @@ describe('ImportWordlistComponent', () => {
     try { component.onFileAdded(mockEvt as any); } catch (e) { }
     expect(window.FileReader).toHaveBeenCalled();
   });
+  it('should fail as it isnt an array', () => {
+    // eslint-disable-next-line max-len
+    const mockFile = new File(['[{"name":"sad","enabled":true,"nouns":[],"verbs":[],"adjectives":[],"misc":[]}]'], 'filename', { type: 'application/json' });
+    const mockEvt = { target: { files: [mockFile] } };
+    spyOn(window as any, 'FileReader').and.callThrough();
+    component.onFileAdded(mockEvt as any);
+    expect(window.FileReader).toHaveBeenCalled();
+  });
+  it('should fail as it is invalid', () => {
+    // eslint-disable-next-line max-len
+    const mockFile = new File(['turkey'], 'filename', { type: 'application/json' });
+    const mockEvt = { target: { files: [mockFile] } };
+    spyOn(window as any, 'FileReader').and.callThrough();
+    component.onFileAdded(mockEvt as any);
+    expect(window.FileReader).toHaveBeenCalled();
+  });
 
   it('should save', () => {
     component.wordlist = ex;
     component.id = 'meow';
     expect(component.save()).toBe(true);
-    component.wordlist = undefined;
+    component.wordlist = null;
     expect(component.save()).toBe(false);
   });
 });

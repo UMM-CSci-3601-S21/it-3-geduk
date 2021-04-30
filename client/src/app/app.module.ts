@@ -35,13 +35,14 @@ import { AddWordComponent } from './words/add-word/add-word.component';
 import { WordListService } from './services/wordlist.service';
 import { ViewWordlistComponent } from './wordlists/view-wordlist/view-wordlist.component';
 import { WordlistCardComponent } from './wordlists/wordlist-card/wordlist-card.component';
-import { WordFormComponent } from './words/word-form/word-form.component';
 import { DisplayContextPacksComponent } from './context-packs/display-contextPacks/display-context-packs.component';
 import { ContextPackCardComponent } from './context-packs/contextPack-card/context-pack-card.component';
 import { AddContextPackComponent } from './context-packs/add-contextPacks/add-contextPacks.component';
 import { ContextPackService } from './services/contextPack-service/contextpack.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ImportContextPackComponent } from './context-packs/import-contextPack/import-context-pack.component';
+import { ExportContextPacksComponent } from './wordlists/export-context-packs/export-context-packs.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClient } from '@angular/common/http';
 
@@ -78,10 +79,11 @@ const MATERIAL_MODULES: any[] = [
     AddWordComponent,
     ViewWordlistComponent,
     WordlistCardComponent,
-    WordFormComponent,
     DisplayContextPacksComponent,
     ContextPackCardComponent,
-    AddContextPackComponent
+    AddContextPackComponent,
+    ImportContextPackComponent,
+    ExportContextPacksComponent,
   ],
   imports: [
     BrowserModule,

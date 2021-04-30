@@ -1,4 +1,3 @@
-
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DictionaryService } from './../../services/dictionary-service/dictionary.service';
 
@@ -23,6 +22,7 @@ export class AddWordComponent implements OnInit {
   added = false;
 
   valid: boolean;
+  err = false;
 
 
   constructor(private dictionary: DictionaryService) { }
@@ -44,24 +44,12 @@ export class AddWordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(val) {
-    this.forms[this.forms.length - 1] = val;
-    this.forms.push('');
-    this.counter.push(val);
-    this.cleared = false;
-  }
-
-  removeForm(i: number) {
-    this.forms.splice(i, 1);
-    this.counter.splice(i, 1);
-    if (this.forms.length === 0) { this.forms = ['']; }
-  }
-
   suggest() {
     const typed = this.wordName;
+    const firstWord = this.wordName.split(',');
     setTimeout(() => {
       if (this.wordName && typed === this.wordName) {
-        this.dictionary.getType(this.wordName, type => {
+        this.dictionary.getType(firstWord[0], type => {
           if (type === 'adjective' || type === 'verb' || type === 'noun') {
             this.type = `${type}s`;
             this.suggested = type;
@@ -77,10 +65,12 @@ export class AddWordComponent implements OnInit {
   }
 
   save() {
+    const splitInput = this.wordName.split(',');
+    splitInput.forEach(val => this.forms.push(val.trim()));
+
     this.addWord.emit({
-      name: this.wordName.trim(),
-      forms: [...new Set([this.wordName.trim(),
-      ...this.forms.filter(e => e.length !== 0)])],// This line removes repetitions and inserts main word
+      name: splitInput[0],
+      forms: [...new Set([...this.forms.filter(e => e.length !== 0)])],// This line removes repetitions and inserts main word
       type: this.type
     });
     this.wordName = '';

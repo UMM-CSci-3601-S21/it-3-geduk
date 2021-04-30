@@ -20,6 +20,9 @@ import { ImportWordlistComponent } from './wordlists/import-wordlist/import-word
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DisplayContextPacksComponent } from './context-packs/display-contextPacks/display-context-packs.component';
 import { AddContextPackComponent } from './context-packs/add-contextPacks/add-contextPacks.component';
+import { ImportContextPackComponent } from './context-packs/import-contextPack/import-context-pack.component';
+import { ExportContextPacksComponent } from './wordlists/export-context-packs/export-context-packs.component';
+
 
 export const COMMON_IMPORTS = [
   MatButtonModule,
@@ -43,11 +46,11 @@ const routes: Routes = [
   {path: 'packs/new', component: AddContextPackComponent},
   {path: 'packs/:id', component: DisplayWordlistComponent},
   {path: 'packs/:id/import', component: ImportWordlistComponent},
+  {path: 'packs/:id/export', component: ExportContextPacksComponent},
   {path: 'packs/:id/new', component: AddWordListComponent},
   {path: 'packs/:id/:name', component: ViewWordlistComponent},
-
+  {path: 'import-cp', component: ImportContextPackComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     onSameUrlNavigation: 'reload'

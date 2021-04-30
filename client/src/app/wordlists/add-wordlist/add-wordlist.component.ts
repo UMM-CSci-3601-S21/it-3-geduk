@@ -54,7 +54,6 @@ export class AddWordListComponent implements OnInit {
     this.wordList.enabled = this.enabled;
      this.service.addWordList(this.wordList, this.id).subscribe(
        res => {
-         console.log('HTTP RESPONSE', res);
          this.router.navigate(['packs/', this.id]);
               },
        err => {
