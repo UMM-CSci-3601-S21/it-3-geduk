@@ -60,6 +60,7 @@ describe('ViewWordlistComponent', () => {
     component.deleteWord(1);
     expect(component.words.length).toBe(3);
   });
+
   it('should save', () => {
     component.wordlist = {name:'',enabled:false,nouns:[],verbs:[],adjectives:[],misc:[]};
     component.enabled = false;
