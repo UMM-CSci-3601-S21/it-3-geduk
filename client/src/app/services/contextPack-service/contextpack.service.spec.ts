@@ -174,6 +174,15 @@ it('deletePack calls api/packs/:id', () => {
   req.flush({id: 'moo'});
 });
 
+it('updatePack calls api/packs/:id', () => {
+  service.updateContextPack(testCPs[1],testCPs[1]._id).subscribe(
+    context => expect(context).toBe(testCPs[1]) );
+  const req = httpTestingController.expectOne(service.contextPackUrl+ '/' + testCPs[1]._id);
+  expect(req.request.body).toEqual(testCPs[1]);
+  expect(req.request.method).toEqual('PUT');
+  req.flush(testCPs[1]);
+});
+
 it('sets the data in the local storage',() => {
   spyOn(localStorage.__proto__,'setItem');
   const returnValue = service.setData(testCPs[1]);
@@ -181,6 +190,18 @@ it('sets the data in the local storage',() => {
   expect(returnValue).toBeTruthy();
   expect(returnValue).toEqual( testCPs[1].name + ' is set in the local storage');
   expect(returnValue).not.toEqual( testCPs[2].name + 'is set in the local storage');
+});
+it('addPack() posts to api/packs', () => {
+  service.addedPack(testCPs[2]).subscribe(
+    id => expect(id).toBe('test')
+  );
+
+  const req = httpTestingController.expectOne(service.contextPackUrl);
+
+  expect(req.request.method).toEqual('POST');
+  expect(req.request.body).toEqual(testCPs[2]);
+
+  req.flush({id: 'test'});
 });
 
 
