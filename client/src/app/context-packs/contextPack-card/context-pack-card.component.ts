@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { WordList } from 'src/app/datatypes/wordlist';
 import { ContextPackService } from 'src/app/services/contextPack-service/contextpack.service';
 import { SubmitService } from 'src/app/services/submit.service';
 import { ContextPack } from '../../datatypes/contextPacks';
