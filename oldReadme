@@ -1,0 +1,27 @@
+Instructions on setting up the development environment and working with the code are in [the development guide](DEVELOPMENT.md).
+
+### Common commands
+
+From the `server` directory:
+- `./gradlew run` to start the server
+- `./gradlew test` to test the server
+
+From the `client` directory:
+- `ng serve` to run the client
+- `ng test` to test the client
+- `ng e2e` and `ng e2e --watch` to run end-to-end tests
+
+From the `database` directory:
+- `./mongoseed.sh` (or `.\mongoseed.bat` on Windows) to seed the database
+
+## [Deployment](DEPLOYMENT.md)
+
+Instructions on how to create a DigitalOcean Droplet and setup your project are in [the deployment guide](DEPLOYMENT.md).
+
+## [Resources](RESOURCES.md)
+
+Additional resources on tooling and techniques are in [the resources list](RESOURCES.md).
+
+## Contributors
+
+This contributors to this project can be seen [here](../../graphs/contributors).
