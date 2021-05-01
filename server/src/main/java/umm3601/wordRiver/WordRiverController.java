@@ -105,7 +105,6 @@ public class WordRiverController {
   public void editWordList(Context ctx) {
     String id = ctx.pathParam("id");
     String wordListName = ctx.pathParam("name");
-    // todo add some try catch
     ContextPack contextPack = ctxCollection.findOneById(id);
     WordList newList = ctx.bodyValidator(WordList.class).get();
     for (int i = 0; i < contextPack.wordlists.size(); i++) {
