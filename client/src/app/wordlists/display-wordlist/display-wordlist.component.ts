@@ -36,7 +36,6 @@ export class DisplayWordlistComponent implements OnInit {
     });
     this.cpservice.getPack(this.id).subscribe(cp=>{
       this.pack = cp;
-      // console.log(this.pack);
       this.list = cp.wordlists;
       this.name = cp.name;
       this.countWords();

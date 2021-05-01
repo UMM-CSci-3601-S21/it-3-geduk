@@ -8,8 +8,6 @@ import { WordListService } from 'src/app/services/wordlist.service';
 import { MockWordListService } from 'src/testing/wordlist.service.mock';
 import { MockCPService } from 'src/testing/context-pack.service.mock';
 import { DisplayContextPacksComponent } from 'src/app/context-packs/display-contextPacks/display-context-packs.component';
-//import { DisplayWordlistComponent } from '../display-wordlist/display-wordlist.component';
-//import { ImportWordlistComponent } from './import-wordlist.component';
 import { ImportContextPackComponent } from 'src/app/context-packs/import-contextPack/import-context-pack.component';
 import { ContextPack } from 'src/app/datatypes/contextPacks';
 import { WordList } from 'src/app/datatypes/wordlist';
