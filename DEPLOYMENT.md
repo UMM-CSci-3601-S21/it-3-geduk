@@ -1,6 +1,9 @@
 # DigitalOcean Deployment Instructions <!-- omit in toc -->
 
 - [Summary](#summary)
+- [APIs and Keys](#apis-and-keys)
+- [Step 1: Firebase](#step-1-firebase)
+- [Step 2: Dictionary](#step-2-dictionary)
   - [Some terminology](#some-terminology)
 - [Step 1: Creating an account](#step-1-creating-an-account)
 - [Step 2: Creating a droplet](#step-2-creating-a-droplet)
@@ -23,6 +26,61 @@ because we all know none of us actually read walls of text.
 
 Most of this will happen in a terminal window, which is yet another reason to take
 some time to learn how to use the Unix shell.
+
+## APIs and Keys
+
+This project uses a couple APIs to help implement some fun features. For example, 
+Firebase is used to store and generate images for the context packs. In addition,
+a dictionary API is used for the word type auto-suggest feature. To ensure both of
+these services work correctly, you'll need to do a couple things.
+
+## Step 1: Firebase
+
+Firebase is used to store and retrieve images to be used for the context pack images.
+Here is how to set it up for your deployment:
+- Go to [firebase.google.com](https://firebase.google.com/).
+- Either create a Google account or sign into an existing one.
+- Select 'Go To Console' in the top right corner.
+- Add a project.
+- Give your project a name and select continue.
+- Either allow Google analytics or decline them.
+- Go to the page for your project.
+- Select 'Storage' on the left side-bar.
+- Select 'Get Started'.
+- Select 'Continue'.
+- Select a server that is closest to you in the drop-down.
+- Select 'Continue'.
+- Go to 'Project Settings'.
+- Select the platform you are using in the bubbles (probably a webapp).
+- Create a nickname for your project.
+- Disable Firebase hosting.
+- Select 'Register'.
+- This should give you a block of text with an API key. Continue to the console.
+- Select the 'config' bubble and copy the chunk of code there.
+- Head over to the project file, in either VSCode or whatever IDE you are using.
+- Navigate to [`environment.ts`](client/src/environments/environment.ts).
+- Paste the chunk of code you copied earlier under the line that says `production: false` and inside of the brackets of the environment object.
+- Change the `=` to `:` after `firebaseConfig` and then delete the `;` at the end of the chunk you just pasted. This should make it friendly to typescript.
+- Open the terminal and navigate to the client folder.
+- Run `ng add @angular/fire`.
+- Select your project from the available options.
+- Following this process will open another window and ask you to sign into Google with the same account you used for Firebase. Following this should give you the key the terminal will ask for.
+
+Firebase should now be set up and ready to use in your project. For more information, visit [https://github.com/angular/angularfire](https://github.com/angular/angularfire).
+
+
+## Step 2: Dictionary
+
+The Merriam-Webster Dictionary offers a web API free of charge that is used in this
+project for the auto-suggest word type feature. To ensure this works correctly,
+you will need your own API URL and key. The steps for this one are much simpler.
+- Go to [https://dictionaryapi.com/](https://dictionaryapi.com/).
+- Follow the steps there for registering an account and requesting the API URL and key. This information will be sent to you.
+- Once you have received these two things, open the project in an IDE of your choice.
+- Navigate to [`dictionary.service.ts`](client/src/app/services/dictionary-service/dictionary.service.ts).
+- Enter the information accordingly (URL in the apiURL line and the API key in the apiKey line).
+  
+The dictionary service should now be set up and ready to use in your project.
 
 ### Some terminology
 
