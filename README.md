@@ -57,4 +57,74 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 5.) Either edit your imported context pack, or click 'SAVE CONTEXT PACK'<br>
 ![](readme-images/save-context-pack.png)
 
+### Change Context Pack Name
+1.) Click on a context pack.
+2.) You will see context pack details. <br>
+![](readme-images/details.png) <br>
+3.)Look for the context pack name.<br>
+![](readme-images/name.png) <br>
+4.)Change context pack name.<br>
+![](readme-images/editname.png) <br>
+5.) Click 'SAVE CONTEXT PACK'.<br>
+![](readme-images/save-context-pack.png)<br>
+6.)Context pack name is updated.<br>
+![](readme-images/updated.png) <br>
 
+### Change Context Pack Enable/Disable Value
+1.) Click on a context pack.
+2.) You will see context pack details. <br>
+![](readme-images/details.png) <br>
+3.)Look for the context pack 'ENABLE/DISABLE' butto.<br>
+![](readme-images/enable.png) <br>
+4.)Click the 'ENABLE' button.
+5.)Context pack name is updated.<br>
+![](readme-images/updated.png) <br>
+6.)The value of the 'ENABLE/DISABLE' button should change.<br>
+![](readme-images/disable.png) <br>
+### Export Context Pack
+1.) Click on a context pack.
+2.) You will see context pack details. <br>
+![](readme-images/details.png) <br>
+3.) Click the 'EXPORT CONTEXT PACK' button.<br>
+![](readme-images/export.png) <br>
+4.) You should see the export context pack page.<br>
+![](readme-images/exportpage.png) <br>
+5.) You cancel the export by pressing the cancel button.<br>
+![](readme-images/cancel.png) <br>
+6.) Press the 'VIEW CONTEXT PACK JSON' button.<br>
+![](readme-images/jsonbutton.png) <br>
+7.) You should see the context pack json.<br>
+![](readme-images/json.png) <br>
+8.) Press the 'DOWNLOAD JSON' button.<br>
+![](readme-images/downloadjson.png) <br>
+9.) It should download the context pack JSON.<br>
+![](readme-images/finishdownload.png) <br>
+
+### Tool Tips
+1.) Click on a context pack.
+2.) You will see context pack page.<br>
+![](readme-images/contextpackpage.png) <br>
+3.) Hover over any word in the wordlists.<br>
+![](readme-images/screen.png) <br>
+4.) You will see the word and its form.
+
+
+### Add Word
+1.) Click on a context pack.
+2.) You will see context pack page.<br>
+![](readme-images/contextpackpage.png) <br>
+3.) Click a wordlist.<br>
+![](readme-images/wordlist.png) <br>
+4.) You will see the wordlist details.<br>
+![](readme-images/wordlistdetail.png) <br>
+5.) Look for 'Add a new word'.<br>
+![](readme-images/lookforadd.png) <br>
+6.) Find add word and forms.<br>
+![](readme-images/addword.png) <br>
+7.) Type in the word and its forms.<br>
+![](readme-images/formtwo.png) <br>
+8.) Click the 'Add' button.<br>
+![](readme-images/add.png) <br>
+8.)Word and Forms should add to the wordlist.<br>
+![](readme-images/wordadded.png) <br>
+<br>
