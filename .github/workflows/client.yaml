@@ -7,9 +7,10 @@ defaults:
     working-directory: ./client
 
 jobs:
-  ng-test --log-level DEBUG:
+  ng-test:
     runs-on: ubuntu-latest
 
+    log-level: log_debug
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
