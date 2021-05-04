@@ -5,6 +5,7 @@ import { WordList } from 'src/app/datatypes/wordlist';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContextPack } from 'src/app/datatypes/contextPacks';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SubmitService } from 'src/app/services/submit.service';
 
 @Component({
   selector: 'app-display-wordlist',
@@ -25,7 +26,8 @@ export class DisplayWordlistComponent implements OnInit {
     private cpservice: ContextPackService,
     private router: Router,
     private contextPackService: ContextPackService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private submitService: SubmitService
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,6 @@ export class DisplayWordlistComponent implements OnInit {
     });
     this.cpservice.getPack(this.id).subscribe(cp=>{
       this.pack = cp;
-      // console.log(this.pack);
       this.list = cp.wordlists;
       this.name = cp.name;
       this.countWords();
@@ -84,16 +85,7 @@ export class DisplayWordlistComponent implements OnInit {
     this.submit(this.pack);
   }
 
-  submit(cp: ContextPack) {
-    this.contextPackService.updateContextPack(cp, cp._id).subscribe(contextpack => {
-
-      this.snackBar.open(cp.name[0].toUpperCase()+cp.name.substring(1,cp.name.length).toLowerCase()+ ' Pack is Updated' , null, {
-        duration: 2000,
-      });
-    }, err => {
-      this.snackBar.open('Failed to update the pack', 'OK', {
-        duration: 5000,
-      });
-    });
+  submit(cp: ContextPack){
+    this.submitService.submit(cp);
   }
 }
