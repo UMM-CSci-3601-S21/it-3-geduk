@@ -7,7 +7,7 @@ defaults:
     working-directory: ./client
 
 jobs:
-  ng-test:
+  ng-test --log-level DEBUG:
     runs-on: ubuntu-latest
 
     steps:
