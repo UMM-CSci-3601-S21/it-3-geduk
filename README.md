@@ -127,3 +127,4 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 ![](readme-images/add.png) <br>
 8.)Word and Forms should add to the wordlist.<br>
 ![](readme-images/wordadded.png) <br>
+<br>
