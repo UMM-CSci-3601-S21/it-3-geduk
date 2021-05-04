@@ -33,9 +33,9 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 6.) Click on 'ADD WORDLIST' button OR optionally, import wordlist JSON file.<br> 
 ![](readme-images/add-wordlist.png)<br>
 7.) Add wordlist name.<br>
-8.) Select a wordlist type from the drop-down menu.
-9.) You may add words to the word lists along with their forms separated by commas. For example: "word, words"
-10.) Click 'ADD WORD' button.
+8.) Select a wordlist type from the drop-down menu. <br>
+9.) You may add words to the word lists along with their forms separated by commas. For example: "word, words"<br>
+10.) Click 'ADD WORD' button.<br>
 ![](readme-images/wordlist-information.png)<br>
 ![](readme-images/add-words.png)<br>
 11.) Add as many words as you would like to the wordlists, then click 'SAVE WORDLIST'<br>
@@ -71,18 +71,18 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 ![](readme-images/updated.png) <br>
 
 ### Change Context Pack Enable/Disable Value
-1.) Click on a context pack.
+1.) Click on a context pack. <br>
 2.) You will see context pack details. <br>
 ![](readme-images/details.png) <br>
-3.)Look for the context pack 'ENABLE/DISABLE' butto.<br>
+3.)Look for the context pack 'ENABLE/DISABLE' button.<br>
 ![](readme-images/enable.png) <br>
-4.)Click the 'ENABLE' button.
+4.)Click the 'ENABLE' button. <br>
 5.)Context pack name is updated.<br>
 ![](readme-images/updated.png) <br>
 6.)The value of the 'ENABLE/DISABLE' button should change.<br>
 ![](readme-images/disable.png) <br>
 ### Export Context Pack
-1.) Click on a context pack.
+1.) Click on a context pack.<br>
 2.) You will see context pack details. <br>
 ![](readme-images/details.png) <br>
 3.) Click the 'EXPORT CONTEXT PACK' button.<br>
@@ -101,16 +101,16 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 ![](readme-images/finishdownload.png) <br>
 
 ### Tool Tips
-1.) Click on a context pack.
+1.) Click on a context pack.<br>
 2.) You will see context pack page.<br>
 ![](readme-images/contextpackpage.png) <br>
 3.) Hover over any word in the wordlists.<br>
 ![](readme-images/screen.png) <br>
-4.) You will see the word and its form.
+4.) You will see the word and its form.<br>
 
 
 ### Add Word
-1.) Click on a context pack.
+1.) Click on a context pack. <br>
 2.) You will see context pack page.<br>
 ![](readme-images/contextpackpage.png) <br>
 3.) Click a wordlist.<br>
