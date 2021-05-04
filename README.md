@@ -33,9 +33,9 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 6.) Click on 'ADD WORDLIST' button OR optionally, import wordlist JSON file.<br> 
 ![](readme-images/add-wordlist.png)<br>
 7.) Add wordlist name.<br>
-8.) Select a wordlist type from the drop-down menu.
-9.) You may add words to the word lists along with their forms separated by commas. For example: "word, words"
-10.) Click 'ADD WORD' button.
+8.) Select a wordlist type from the drop-down menu. <br>
+9.) You may add words to the word lists along with their forms separated by commas. For example: "word, words"<br>
+10.) Click 'ADD WORD' button.<br>
 ![](readme-images/wordlist-information.png)<br>
 ![](readme-images/add-words.png)<br>
 11.) Add as many words as you would like to the wordlists, then click 'SAVE WORDLIST'<br>
