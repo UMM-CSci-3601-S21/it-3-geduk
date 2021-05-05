@@ -42,7 +42,7 @@ Page of issues and improvements that need to be made.
 
 ## Contributors
 
-Contributors can be seen at this link[link](../../graphs/contributors).
+Contributors can be seen at this [link](../../graphs/contributors).
 
-## [Resources](resources.md)
+## [Resources](RESOURCES.md)
 Page of issues and improvements that need to be made.
