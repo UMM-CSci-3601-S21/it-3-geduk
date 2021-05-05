@@ -122,7 +122,7 @@ One for the Java server, one for hosting the client files, and one for the datab
   this will be the password for the `root` user.
   - This should be a good, secure password since it gives access to everything on
     your droplet and anyone can attempt to `ssh` into it. You may wish to use a random
-    password generator for this.
+    password generator/vault such as [LastPass](https://www.lastpass.com/) for this.
   - You can change this password later with the `passwd` command.
 - You don't need to add block storage or backups.
 - Finally, only make one droplet and choose a name for it.
