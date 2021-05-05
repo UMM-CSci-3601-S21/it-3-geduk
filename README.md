@@ -37,18 +37,22 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 
 ## Instructions for Deployment
 Follow this [link](DEPLOYMENT.md) for instructions on how to:
-* Deploy this project on Digital Ocean using droplets.
-* 
+* Deploy this project on [Digital Ocean](https://www.digitalocean.com/) using droplets.
+* Get linked up with [Google Firebase](https://firebase.google.com).
+* Get linked up with the [Miriam Webster Dictionary API](https://dictionaryapi.com/)
 
 
-## [Improvements and Issues](todolist.md)
-Page of issues and improvements that need to be made.
+## Improvements and Issues
+Follow this [link](todolist.md) for a list of known issues and possible improvements.
 
-## [Pamphlet](Brochure.pdf)
+
+## Pamphlet
+[Here](Brochure.pdf) is a brochure that highlights project features and capabilities.
+
 
 ## Contributors
 
 Contributors can be seen at this [link](../../graphs/contributors).
 
-## [Resources](RESOURCES.md)
-Page of issues and improvements that need to be made.
+## Resources
+[Document](RESOURCES.md) with a list of useful resources and website, including accessibility options.
