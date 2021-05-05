@@ -2,7 +2,7 @@
 
 
 ## Known Issues:
-* These is an object object error thrown in the karma tests. It has been derived from the last iteration.
+* These is an object object error thrown in the karma tests. It has been derived from the last iteration. Rerunning the test workflow often fixes this issue.
 * The Merriam Webster Dictionary make take some time to return a suggestion with the new changes we made to add word.
 * No limits for length of word and forms, amount of forms for each word, 
 
