@@ -32,7 +32,7 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 * **Change How Add Word Works**: user inputs word and form in the input box instead of the different input boxes for word and form.
 
 ## Instructions for Use 
-Here is a [github link](https://github.com/UMM-CSci-3601-S21/it-3-geduk/blob/f538497d67a2826f2738140542221f240c5c57ff/HOW-TO-USE.md) to instructions on how to use Word River and its features.
+ [Link](HOW-TO-USE.md#How-To-Use-Project-Features) to documentation with instructions for Word River and its features.
 
 
 ## Instructions for Deployment
