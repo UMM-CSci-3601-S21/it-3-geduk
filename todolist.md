@@ -11,4 +11,3 @@
 * Test Coverage for the features implemented in this iteration can be improved for karma tests and E2E tests. E2E tests don't test the features in extreme depth. Karma tests can be improved for previous and new features.
 * Refactor the files, there seems to be a lot of files, which makes it difficult to understand whats going on in the project.
 * When the 'Import' feature fails, there isn't any information on why it failed.
-
