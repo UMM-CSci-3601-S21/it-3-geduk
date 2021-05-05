@@ -7,9 +7,8 @@
 
 [![BCH compliance](https://bettercodehub.com/edge/badge/UMM-CSci-3601-S21/it-3-geduk?branch=main)](https://bettercodehub.com/)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/UMM-CSci-3601-S21/it-3-geduk.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/UMM-CSci-3601-S21/it-3-geduk/alerts/)
-- [Development](#development)
-  - [Common commands](#common-commands)
-- [Deployment](#deployment)
+- [Technical Document](#deployment)
+- [Improvements and Issues](#todolist)
 - [Resources](#resources)
 - [Contributors](#contributors)
 ---
@@ -20,7 +19,7 @@ For teachers who wish to support beginners’ engagement with language,
 Word River is a tool that supports the management and analysis of language exploration.
 Unlike managing all of this information by hand, our product makes it easy to manage what words are available (through the creation, viewing, and assignment of personalized content) and understand more about a learner’s exploration and progress (by providing information about language exposure and the results of various activities).
 
-## How To Use
+## Project Features
 
 ### Create Context Packs In App
 1.) From the main page, click on the '+add' button.
@@ -128,3 +127,9 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 8.)Word and Forms should add to the wordlist.<br>
 ![](readme-images/wordadded.png) <br>
 <br>
+
+## [Technical Document](DEPLOYMENT.md)
+
+## [Improvements and Issues](todolist.md)
+
+Page of issues and improvements that need to be made.
