@@ -11,18 +11,18 @@
 
 
 ## Create Context Packs In App
-1.) From the main page, click on the '+add' button.
-![](readme-images/create-button.png)
+1.) From the main page, click on the '+add' button.<br>
+![](readme-images/create-button.png)<br>
 2.) Add a valid name.<br>
 3.) Choose wether this context pack will be enabled in Story Builder.<br>
 4.) (Optional) Add a link (URL) to an icon you would like for your context pack.<br>
 5.) Once all required fields have valid information, you may click 'ADD CONTEXT PACK' button.<br>
 ![](readme-images/add-info.png)<br>
-6.) Click on 'ADD WORDLIST' button OR optionally, import wordlist JSON file.<br> 
+6.) Click on 'ADD WORDLIST' button OR (optional) import wordlist JSON file.<br> 
 ![](readme-images/add-wordlist.png)<br>
 7.) Add wordlist name.<br>
 8.) Select a wordlist type from the drop-down menu. <br>
-9.) You may add words to the word lists along with their forms separated by commas. For example: "word, words"<br>
+9.) You may add words and their alternate forms to the 'new word' input field separated by commas. For example: "word, words"<br>
 10.) Click 'ADD WORD' button.<br>
 ![](readme-images/wordlist-information.png)<br>
 ![](readme-images/add-words.png)<br>
@@ -46,7 +46,7 @@
 ![](readme-images/save-context-pack.png)
 
 ## Change Context Pack Name
-1.) Click on a context pack.
+1.) Click on a context pack.<br>
 2.) You will see context pack details. <br>
 ![](readme-images/details.png) <br>
 3.)Look for the context pack name.<br>
@@ -85,7 +85,7 @@
 ![](readme-images/json.png) <br>
 8.) Press the 'DOWNLOAD JSON' button.<br>
 ![](readme-images/downloadjson.png) <br>
-9.) It should download the context pack JSON.<br>
+9.) It will download the context pack JSON.<br>
 ![](readme-images/finishdownload.png) <br>
 
 ## Tool Tips
