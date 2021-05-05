@@ -31,11 +31,15 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 * **Add Tooltips**: when user hovers on a word in the wordlist, the forms show in bubble.
 * **Change How Add Word Works**: user inputs word and form in the input box instead of the different input boxes for word and form.
 
-## [How To Used Project Features](howtouse.md)
-Page of how to use the project features.
+## Instructions for Use 
+Here is a [github link](https://github.com/UMM-CSci-3601-S21/it-3-geduk/blob/f538497d67a2826f2738140542221f240c5c57ff/HOW-TO-USE.md) to instructions on how to use Word River and its features.
 
-## [Technical Document](DEPLOYMENT.md)
-Page of how to deploy Firebase and Merriam-Webster API.
+
+## Instructions for Deployment
+Follow this [link](DEPLOYMENT.md) for instructions on how to:
+* Deploy this project on Digital Ocean using droplets.
+* 
+
 
 ## [Improvements and Issues](todolist.md)
 Page of issues and improvements that need to be made.
