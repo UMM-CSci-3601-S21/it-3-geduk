@@ -145,7 +145,7 @@ One for the Java server, one for hosting the client files, and one for the datab
 
 ## Common tasks
 
-Do all of these from within the base directory of the repo.
+Do all of these from within the base directory of the repo. You can navigate to the base directory using console command `cd ~/`
 
 ### Resetting the database
 
