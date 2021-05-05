@@ -24,7 +24,7 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 
 ## Project Features Implemented In Iteration 3
 
-* **Import A Contextpack:** user can import a context pack as long as it is in JSON format.
+* **Import A Contextpack:** user can change import a context pack as long as it is in JSON format.
 * **Export A Contextpack:** user can export a context pack in JSON format to be used elsewhere.
 * **Change Contextpack Name**: user can change the name of the contextpack.
 * **Change Contextpack Enable Value**: user can the enabled value of the contextpack.
