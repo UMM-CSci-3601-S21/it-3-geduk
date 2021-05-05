@@ -40,6 +40,8 @@ Page of how to deploy Firebase and Merriam-Webster API.
 ## [Improvements and Issues](todolist.md)
 Page of issues and improvements that need to be made.
 
+## [Pamphlet](Brochure.pdf)
+
 ## Contributors
 
 Contributors can be seen at this [link](../../graphs/contributors).
