@@ -12,6 +12,8 @@
   - [How To Used Project Features](#how-to-used-project-features)
   - [Technical Document](#technical-document)
   - [Improvements and Issues](#improvements-and-issues)
+  - [Contributors](#contributors)
+  - [Resources](#resources)
 ---
 
 ## Purpose
@@ -38,3 +40,9 @@ Page of how to deploy Firebase and Merriam-Webster API.
 ## [Improvements and Issues](todolist.md)
 Page of issues and improvements that need to be made.
 
+## Contributors
+
+Contributors can be seen at this link[link](../../graphs/contributors).
+
+## [Resources](resources.md)
+Page of issues and improvements that need to be made.
