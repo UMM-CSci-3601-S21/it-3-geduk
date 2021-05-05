@@ -122,7 +122,7 @@ One for the Java server, one for hosting the client files, and one for the datab
   this will be the password for the `root` user.
   - This should be a good, secure password since it gives access to everything on
     your droplet and anyone can attempt to `ssh` into it. You may wish to use a random
-    password generator for this.
+    password generator/vault such as [LastPass](https://www.lastpass.com/) for this.
   - You can change this password later with the `passwd` command.
 - You don't need to add block storage or backups.
 - Finally, only make one droplet and choose a name for it.
@@ -145,7 +145,7 @@ One for the Java server, one for hosting the client files, and one for the datab
 
 ## Common tasks
 
-Do all of these from within the base directory of the repo.
+Do all of these from within the base directory of the repo. You can navigate to the base directory using console command `cd ~/`
 
 ### Resetting the database
 
@@ -178,4 +178,4 @@ There are many more commands and options for `docker-compose`. They are all docu
 
 ## Using a custom domain
 
-If you have bought a domain for your project and would like to use it, set its DNS A record to the IP of your droplet. Stop and remove your containers with `docker-compose down` and then you can use `nano` or similar to edit the `.env` file and change `APP_HOST` to the domain you wish to use. After that use `docker-compose up -d` to start it up again.
+If you have bought a domain for your project and would like to use it, set its DNS A record to the IP of your droplet. Stop and remove your containers with `docker-compose down` and then you can use `nano`, `vi` or similar to edit the `.env` file and change `APP_HOST` to the domain you wish to use. After that use `docker-compose up -d` to start it up again.

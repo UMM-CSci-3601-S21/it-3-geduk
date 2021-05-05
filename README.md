@@ -24,27 +24,35 @@ Unlike managing all of this information by hand, our product makes it easy to ma
 
 ## Project Features Implemented In Iteration 3
 
-* **Import A Contextpack:** user can import a context pack as long as it is in JSON format.
+* **Import A Contextpack:** user can change import a context pack as long as it is in JSON format.
 * **Export A Contextpack:** user can export a context pack in JSON format to be used elsewhere.
 * **Change Contextpack Name**: user can change the name of the contextpack.
 * **Change Contextpack Enable Value**: user can the enabled value of the contextpack.
 * **Add Tooltips**: when user hovers on a word in the wordlist, the forms show in bubble.
 * **Change How Add Word Works**: user inputs word and form in the input box instead of the different input boxes for word and form.
 
-## [How To Used Project Features](howtouse.md)
-Page of how to use the project features.
+## Instructions for Use 
+ [Link](HOW-TO-USE.md#How-To-Use-Project-Features) to documentation with instructions for Word River and its features.
 
-## [Technical Document](DEPLOYMENT.md)
-Page of how to deploy Firebase and Merriam-Webster API.
 
-## [Improvements and Issues](todolist.md)
-Page of issues and improvements that need to be made.
+## Instructions for Deployment
+Follow this [link](DEPLOYMENT.md) for instructions on how to:
+* Deploy this project on [Digital Ocean](https://www.digitalocean.com/) using droplets.
+* Get linked up with [Google Firebase](https://firebase.google.com).
+* Get linked up with the [Miriam Webster Dictionary API](https://dictionaryapi.com/)
 
-## [Pamphlet](Brochure.pdf)
+
+## Improvements and Issues
+Follow this [link](todolist.md) for a list of known issues and possible improvements.
+
+
+## Pamphlet
+[Here](Brochure.pdf) is a brochure that highlights project features and capabilities.
+
 
 ## Contributors
 
 Contributors can be seen at this [link](../../graphs/contributors).
 
-## [Resources](RESOURCES.md)
-Page of issues and improvements that need to be made.
+## Resources
+[Document](RESOURCES.md) with a list of useful resources and website, including accessibility options.
